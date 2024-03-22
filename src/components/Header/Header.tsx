@@ -16,6 +16,7 @@ import apiNational from "../../api/apiNational";
 const Header = () => {
   const token = Cookies.get("token");
   const collegeUUID = Cookies.get("collegeUUID");
+  const specialityUUID = Cookies.get("specialityUUID");
   const navigate = useNavigate();
   const ref = useRef();
   const [loading, setLoading]: any = React.useState(false);
@@ -37,6 +38,7 @@ const Header = () => {
     Cookies.remove("token");
     Cookies.remove("code");
     Cookies.remove("collegeUUID");
+    Cookies.remove("specialityUUID");
     navigate("/login");
   };
 
@@ -87,7 +89,7 @@ const Header = () => {
         >
           <p>الرئيسية</p>
         </NavLink>
-        {location.pathname === "/" && (
+        {!specialityUUID && (
           <a
             href="#specialists"
             className={`link-template ${
