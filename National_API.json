@@ -1,0 +1,1355 @@
+{
+	"info": {
+		"_postman_id": "44eec1da-c63d-4f57-8921-446aed3948f6",
+		"name": "derrebni",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31178799"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "register",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();\r",
+											"const token = jsonData.data.token;\r",
+											"\r",
+											"pm.collectionVariables.set('token', token);\r",
+											"\r",
+											"pm.request.headers.add({key: 'Accept', value: 'application/json' })"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "yazan",
+											"description": "'required|string|alphabet',",
+											"type": "text"
+										},
+										{
+											"key": "phone",
+											"value": "0965894267",
+											"description": "'required|string|regex:/^0\\d{9}$/',",
+											"type": "text"
+										},
+										{
+											"key": "college_uuid",
+											"value": "6bb79145-7f67-4723-86ed-ba139f640900",
+											"description": "'required|string|'",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://national.cliprz.org/api/user/register",
+									"protocol": "https",
+									"host": [
+										"national",
+										"cliprz",
+										"org"
+									],
+									"path": [
+										"api",
+										"user",
+										"register"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "register",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "yazan",
+													"description": "'required|string',",
+													"type": "text"
+												},
+												{
+													"key": "phone",
+													"value": "0965894238",
+													"description": "'required|string|regex:/^0\\d{9}$/',",
+													"type": "text"
+												},
+												{
+													"key": "college_uuid",
+													"value": "6bb79145-7f67-4723-86ed-ba139f640900",
+													"description": "'required|string|'",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://derrebni-3lwatany.test/api/user/register",
+											"protocol": "http",
+											"host": [
+												"derrebni-3lwatany",
+												"test"
+											],
+											"path": [
+												"api",
+												"user",
+												"register"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 08 Feb 2024 18:46:38 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.54 (Win64) OpenSSL/1.1.1q PHP/8.1.10"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.10"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "56"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": null,\n    \"status\": true,\n    \"message\": \"تم التسجيل بنجاح\",\n    \"statusCode\": 200\n}"
+								}
+							]
+						},
+						{
+							"name": "logOut",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.request.headers.add({key: 'Accept', value: 'application/json' })"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "code",
+										"value": "123456",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "college",
+										"value": "",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://national.cliprz.org/api/user/logout",
+									"protocol": "https",
+									"host": [
+										"national",
+										"cliprz",
+										"org"
+									],
+									"path": [
+										"api",
+										"user",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "log in",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const jsonData = pm.response.json();\r",
+											"const token = jsonData.data.token;\r",
+											"\r",
+											"pm.collectionVariables.set('token', token);\r",
+											"\r",
+											"pm.request.headers.add({key: 'Accept', value: 'application/json' })"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "yazan",
+											"description": "required| string|  alphabet letters",
+											"type": "text"
+										},
+										{
+											"key": "code",
+											"value": "123456",
+											"description": "required|string",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "https://national.cliprz.org/api/user/login",
+									"protocol": "https",
+									"host": [
+										"national",
+										"cliprz",
+										"org"
+									],
+									"path": [
+										"api",
+										"user",
+										"login"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "name",
+													"value": "yazan",
+													"type": "text"
+												},
+												{
+													"key": "code",
+													"value": "123456",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://derrebni-3lwatany.test/api/user/login",
+											"protocol": "http",
+											"host": [
+												"derrebni-3lwatany",
+												"test"
+											],
+											"path": [
+												"api",
+												"user",
+												"login"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Mon, 05 Feb 2024 10:37:54 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.54 (Win64) OpenSSL/1.1.1q PHP/8.1.10"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.10"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "55"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=97"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": {\n        \"token\": \"8|lIlnkvZuA7HdaHhgeCZDZtvBT0ixebqRx5RQ98hc545e3a65\"\n    },\n    \"status\": true,\n    \"message\": null,\n    \"statusCode\": 200\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "colleges",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://national.cliprz.org/api/colleges",
+									"protocol": "https",
+									"host": [
+										"national",
+										"cliprz",
+										"org"
+									],
+									"path": [
+										"api",
+										"colleges"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://derrebni-3lwatany.test/api/colleges",
+											"protocol": "http",
+											"host": [
+												"derrebni-3lwatany",
+												"test"
+											],
+											"path": [
+												"api",
+												"colleges"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Wed, 07 Feb 2024 11:05:53 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.54 (Win64) OpenSSL/1.1.1q PHP/8.1.10"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.10"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"uuid\": \"06ae1f82-8df5-413f-bddb-bc2c1fc6ea51\",\n            \"type\": \"medical\",\n            \"image\": \"https://via.placeholder.com/640x480.png/00bb00?text=fugiat\",\n            \"name\": \"Mae\"\n        },\n        {\n            \"uuid\": \"dcfc70ef-2b4b-41a7-aee9-1ad1b225146d\",\n            \"type\": \"engineering\",\n            \"image\": \"https://via.placeholder.com/640x480.png/002255?text=rerum\",\n            \"name\": \"Bertram\"\n        },\n        {\n            \"uuid\": \"cf398a91-913e-4dce-b82d-e858a25a7e3c\",\n            \"type\": \"medical\",\n            \"image\": \"https://via.placeholder.com/640x480.png/007766?text=corporis\",\n            \"name\": \"Declan\"\n        },\n        {\n            \"uuid\": \"6bb79145-7f67-4723-86ed-ba139f640900\",\n            \"type\": \"engineering\",\n            \"image\": \"https://via.placeholder.com/640x480.png/00bb77?text=rerum\",\n            \"name\": \"Brandon\"\n        },\n        {\n            \"uuid\": \"1b6b55cb-1213-4dae-b189-9f2f947057e1\",\n            \"type\": \"engineering\",\n            \"image\": \"https://via.placeholder.com/640x480.png/0022ff?text=qui\",\n            \"name\": \"Dorothea\"\n        },\n        {\n            \"uuid\": \"449ed4f4-3b82-4273-b923-a3d112b8fe30\",\n            \"type\": \"engineering\",\n            \"image\": \"https://via.placeholder.com/640x480.png/0000ee?text=dolor\",\n            \"name\": \"Rose\"\n        }\n    ],\n    \"status\": true,\n    \"message\": null,\n    \"statusCode\": 200\n}"
+								}
+							]
+						},
+						{
+							"name": "show specialties",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "code",
+										"value": "123456",
+										"description": "required |string ",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://national.cliprz.org/api/college/specialty?college_uuid=06ae1f82-8df5-413f-bddb-bc2c1fc6ea51",
+									"protocol": "https",
+									"host": [
+										"national",
+										"cliprz",
+										"org"
+									],
+									"path": [
+										"api",
+										"college",
+										"specialty"
+									],
+									"query": [
+										{
+											"key": "college_uuid",
+											"value": "06ae1f82-8df5-413f-bddb-bc2c1fc6ea51",
+											"description": "required |string "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "show specialty",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "college",
+												"value": "06ae1f82-8df5-413f-bddb-bc2c1fc6ea51",
+												"type": "text"
+											},
+											{
+												"key": "code",
+												"value": "123456",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://derrebni-3lwatany.test/api/college/specialty?college_uuid=06ae1f82-8df5-413f-bddb-bc2c1fc6ea51",
+											"protocol": "http",
+											"host": [
+												"derrebni-3lwatany",
+												"test"
+											],
+											"path": [
+												"api",
+												"college",
+												"specialty"
+											],
+											"query": [
+												{
+													"key": "college_uuid",
+													"value": "06ae1f82-8df5-413f-bddb-bc2c1fc6ea51"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 09 Feb 2024 08:33:57 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.54 (Win64) OpenSSL/1.1.1q PHP/8.1.10"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.10"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"name\": \"Kenya\",\n            \"uuid\": \"e9d9a3b4-7448-4dad-a915-8443e131ff96\"\n        },\n        {\n            \"name\": \"Nona\",\n            \"uuid\": \"2b2fc780-09d9-48e8-94d2-2ab8819965a9\"\n        },\n        {\n            \"name\": \"Adrienne\",\n            \"uuid\": \"823120ab-d79c-4aa2-9ffc-2a03475d9b86\"\n        },\n        {\n            \"name\": \"Tyra\",\n            \"uuid\": \"91150f6b-98c8-499c-896a-06e404a3b2e5\"\n        },\n        {\n            \"name\": \"Karianne\",\n            \"uuid\": \"a2e8e7d7-8251-440f-b895-da810072f9da\"\n        },\n        {\n            \"name\": \"Kristina\",\n            \"uuid\": \"5ed3986f-6874-4bdb-816c-15d54ed4ad99\"\n        }\n    ],\n    \"status\": true,\n    \"message\": null,\n    \"statusCode\": 200\n}"
+								}
+							]
+						},
+						{
+							"name": "show subjects",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "code",
+										"value": "123456",
+										"description": "required |string ",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://national.cliprz.org/api/college/subject?college_uuid=06ae1f82-8df5-413f-bddb-bc2c1fc6ea51",
+									"protocol": "https",
+									"host": [
+										"national",
+										"cliprz",
+										"org"
+									],
+									"path": [
+										"api",
+										"college",
+										"subject"
+									],
+									"query": [
+										{
+											"key": "college_uuid",
+											"value": "06ae1f82-8df5-413f-bddb-bc2c1fc6ea51",
+											"description": "required |string "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "code",
+												"value": "123456",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "http://derrebni-3lwatany.test/api/college/subject?college_uuid=06ae1f82-8df5-413f-bddb-bc2c1fc6ea51",
+											"protocol": "http",
+											"host": [
+												"derrebni-3lwatany",
+												"test"
+											],
+											"path": [
+												"api",
+												"college",
+												"subject"
+											],
+											"query": [
+												{
+													"key": "college_uuid",
+													"value": "06ae1f82-8df5-413f-bddb-bc2c1fc6ea51"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Fri, 09 Feb 2024 23:52:25 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.54 (Win64) OpenSSL/1.1.1q PHP/8.1.10"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.10"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"name\": \"Pearline\",\n            \"uuid\": \"8419f917-ecaa-4979-b956-997db09e1f47\"\n        },\n        {\n            \"name\": \"Elsa\",\n            \"uuid\": \"e96d30b0-e3e4-4963-b5d8-5b4fb5a491c0\"\n        },\n        {\n            \"name\": \"Genoveva\",\n            \"uuid\": \"6654ae5e-af01-48fb-9c4f-8c8fa56e741a\"\n        },\n        {\n            \"name\": \"Queen\",\n            \"uuid\": \"bc6134ca-2199-4314-8595-29f7527905ff\"\n        },\n        {\n            \"name\": \"Rosanna\",\n            \"uuid\": \"1fe7bafb-cd32-4f70-b214-deaba8d0ecd9\"\n        },\n        {\n            \"name\": \"Lucie\",\n            \"uuid\": \"7e1ffba6-98f3-46cf-b08c-7d8888e0de11\"\n        },\n        {\n            \"name\": \"Dejah\",\n            \"uuid\": \"9812bb71-27d1-47ef-809e-ffca37df5154\"\n        },\n        {\n            \"name\": \"Elvera\",\n            \"uuid\": \"b24ed59b-02dd-4302-8100-996310dff677\"\n        },\n        {\n            \"name\": \"Addison\",\n            \"uuid\": \"51304726-ca8c-4733-bcba-d263e414ddf1\"\n        },\n        {\n            \"name\": \"Linnea\",\n            \"uuid\": \"6cbf276b-5403-418d-9cf7-20316a74fce0\"\n        },\n        {\n            \"name\": \"Bulah\",\n            \"uuid\": \"c7f32311-fb91-41d0-8849-94ec35fc2c93\"\n        },\n        {\n            \"name\": \"Antonetta\",\n            \"uuid\": \"b8be209d-ed21-45e7-8af7-5d76f2b4500e\"\n        },\n        {\n            \"name\": \"Lesly\",\n            \"uuid\": \"6550e013-5e66-4e36-969f-b6db36ccc571\"\n        },\n        {\n            \"name\": \"Bessie\",\n            \"uuid\": \"4fb19d1c-5ea0-48c6-8ff7-85899e621d81\"\n        },\n        {\n            \"name\": \"Maeve\",\n            \"uuid\": \"ccc75b5d-afb1-4f2a-bbbe-32570d27637d\"\n        },\n        {\n            \"name\": \"Nannie\",\n            \"uuid\": \"ea70b22b-e162-442c-b0fe-face17745fba\"\n        },\n        {\n            \"name\": \"Alene\",\n            \"uuid\": \"661bff2b-c2a9-4fcc-8ea2-b3958eb40a5e\"\n        },\n        {\n            \"name\": \"Mariana\",\n            \"uuid\": \"7ba4599f-2837-47e4-8a11-de3de472f391\"\n        },\n        {\n            \"name\": \"Alvena\",\n            \"uuid\": \"036b9ac0-0210-4bf9-b163-115505cc0457\"\n        },\n        {\n            \"name\": \"Coralie\",\n            \"uuid\": \"d71a8431-30a8-4150-aeea-f134c23256c1\"\n        },\n        {\n            \"name\": \"Stephany\",\n            \"uuid\": \"34eda66a-bd39-4118-a5a8-c8e682fc97a5\"\n        },\n        {\n            \"name\": \"Shanna\",\n            \"uuid\": \"dcb1c5a8-ef18-46ef-a16c-c07c1850d571\"\n        },\n        {\n            \"name\": \"Camila\",\n            \"uuid\": \"dd4d3f21-031c-494e-8f33-ef96971f93d3\"\n        },\n        {\n            \"name\": \"Aylin\",\n            \"uuid\": \"04b72689-3c44-4873-bf70-7e527d4c46f4\"\n        },\n        {\n            \"name\": \"Alessandra\",\n            \"uuid\": \"f124945e-48d7-438e-a9cc-73d0908c565f\"\n        }\n    ],\n    \"status\": true,\n    \"message\": null,\n    \"statusCode\": 200\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "slider",
+					"item": [
+						{
+							"name": "index",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text",
+										"equals": true
+									},
+									{
+										"key": "code",
+										"value": "123456",
+										"description": "required |string ",
+										"type": "text",
+										"equals": true
+									}
+								],
+								"url": {
+									"raw": "https://national.cliprz.org/api/sliders?college_uuid=06ae1f82-8df5-413f-bddb-bc2c1fc6ea51",
+									"protocol": "https",
+									"host": [
+										"national",
+										"cliprz",
+										"org"
+									],
+									"path": [
+										"api",
+										"sliders"
+									],
+									"query": [
+										{
+											"key": "college_uuid",
+											"value": "06ae1f82-8df5-413f-bddb-bc2c1fc6ea51",
+											"description": "required |string "
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "exam",
+					"item": [
+						{
+							"name": "choose exam by book questions",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "code",
+										"value": "123456",
+										"description": "required |string ",
+										"type": "text",
+										"equals": true
+									}
+								],
+								"url": {
+									"raw": "https://national.cliprz.org/api/user/exams/book?college_uuid=06ae1f82-8df5-413f-bddb-bc2c1fc6ea51&specialty_uuid=e9d9a3b4-7448-4dad-a915-8443e131ff96",
+									"protocol": "https",
+									"host": [
+										"national",
+										"cliprz",
+										"org"
+									],
+									"path": [
+										"api",
+										"user",
+										"exams",
+										"book"
+									],
+									"query": [
+										{
+											"key": "college_uuid",
+											"value": "06ae1f82-8df5-413f-bddb-bc2c1fc6ea51",
+											"description": "required |string "
+										},
+										{
+											"key": "specialty_uuid",
+											"value": "e9d9a3b4-7448-4dad-a915-8443e131ff96",
+											"description": "required |string "
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "New Request",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json",
+												"type": "text"
+											},
+											{
+												"key": "code",
+												"value": "123456",
+												"type": "text",
+												"equals": true
+											}
+										],
+										"url": {
+											"raw": "http://derrebni-3lwatany.test/api/user/exam?college_uuid=06ae1f82-8df5-413f-bddb-bc2c1fc6ea51&specialty_uuid=e9d9a3b4-7448-4dad-a915-8443e131ff96&type=book&degree=graduation",
+											"protocol": "http",
+											"host": [
+												"derrebni-3lwatany",
+												"test"
+											],
+											"path": [
+												"api",
+												"user",
+												"exam"
+											],
+											"query": [
+												{
+													"key": "college_uuid",
+													"value": "06ae1f82-8df5-413f-bddb-bc2c1fc6ea51"
+												},
+												{
+													"key": "specialty_uuid",
+													"value": "e9d9a3b4-7448-4dad-a915-8443e131ff96"
+												},
+												{
+													"key": "type",
+													"value": "book"
+												},
+												{
+													"key": "degree",
+													"value": "graduation"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sun, 11 Feb 2024 05:56:30 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.54 (Win64) OpenSSL/1.1.1q PHP/8.1.10"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/8.1.10"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "58"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"question_text\": \"Qui asperiores consequatur dicta soluta. Voluptas sequi perspiciatis sit minus. Velit temporibus soluta eius dicta. Est dolorem fuga rerum ipsum.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Earum tempore saepe sint.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Aut sunt et et commodi qui.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"Dolor eligendi sit modi sint.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Enim consequatur sed voluptas laboriosam natus. Eius aliquid consequatur molestiae quia similique dolor. Et sit debitis amet commodi nulla ut.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Velit sit sed et.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Ut non officia ut earum ut.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Ut quia qui vitae ullam.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Officiis et velit occaecati.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"Quas est et vel quis.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"Et est autem aut qui.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Sunt in voluptas illo dolores debitis ipsam maiores. Nisi aut autem molestiae distinctio id sit aliquid ipsum. Est perspiciatis est laudantium eum mollitia.\",\n            \"answers\": []\n        },\n        {\n            \"question_text\": \"Molestiae ratione illo incidunt. Et placeat inventore aut ullam minima dicta natus. Sit eum nostrum laborum accusamus quisquam repudiandae nihil. In cum modi quis provident voluptatem.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Iusto accusamus dicta quidem.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"A dolorem id quia qui sit.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Aut eos tempore et ea aut.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Hic rem tempora sit non.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Magni laborum facilis non.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"Dolor reiciendis hic rerum.\",\n                    \"status\": 1\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Sunt reiciendis illo adipisci eum architecto. Ea enim atque velit quos. Ut totam at est. Natus culpa ut sit et rerum totam. Odit iste minus repellat rerum cum. Tenetur repellendus sit veniam.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Mollitia et dolorem error.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Quo omnis nesciunt eum.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Voluptas nobis ut unde qui.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Eum quo rem nihil ipsam.\",\n                    \"status\": 1\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Voluptas eius similique vel tempore veritatis quisquam illo. A dicta nisi aut voluptatem tenetur.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Odio rem natus hic voluptate.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Aut et maxime doloribus.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"Saepe omnis tenetur hic.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Quis modi est consectetur corrupti. Aut dolor ea maxime aperiam et id sed. Provident officiis quam excepturi facere officiis assumenda totam. Magni suscipit delectus ut tempora autem minima aut.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Quo ab corrupti explicabo.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Quae sit ratione eius quasi.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"Eum illum illo fugiat et aut.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Voluptas repellat perspiciatis officia omnis optio. Provident et ea debitis atque nesciunt. Est et harum repellendus in non.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Porro enim nam eum.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Esse non nesciunt omnis.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Non et ut cum accusamus.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Harum qui numquam est quia.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Qui maxime quia neque autem.\",\n                    \"status\": 1\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Doloremque quam quam veniam possimus veritatis quia. Amet accusamus eveniet quia ratione porro dolor iste. Sint culpa repellendus ipsa eaque consequatur natus tempora vel.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Fuga ipsam labore suscipit.\",\n                    \"status\": 1\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Vero impedit omnis provident maiores natus ut nihil. Aut id deleniti et dolorum corrupti et accusantium. Mollitia cupiditate incidunt hic inventore iusto.\",\n            \"answers\": []\n        },\n        {\n            \"question_text\": \"Odio est accusamus voluptas esse rem ea autem nobis. Harum earum sed inventore dicta. Enim fugiat iste perspiciatis ipsum.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Possimus illo pariatur aut.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Qui nemo sequi facere sed.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Voluptas officia nostrum nesciunt quis porro facere fuga. Laboriosam hic iste odio similique soluta nisi. Quo voluptatem doloribus autem omnis id eum voluptatem. Quia velit quia commodi quia.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Quis vero occaecati odio.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Saepe qui aliquid et. At aliquam quidem laboriosam ipsum. Ut ea sed et tempore quae.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Qui rerum a aspernatur rem.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Similique est consequuntur quia eaque officia mollitia. Numquam harum impedit molestiae inventore sed. Quas pariatur neque aut.\",\n            \"answers\": []\n        },\n        {\n            \"question_text\": \"Quibusdam nam rem voluptatem tempore rem qui aut. Velit esse minima facere. Ducimus voluptatum qui qui.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Aliquid iure unde omnis.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Quidem ut ut et voluptas.\",\n                    \"status\": 1\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Dolorem vel laboriosam saepe aut tempora officiis et omnis. Quidem quia labore et qui quos qui sit. Numquam similique quis et provident ut ipsum optio. Quod ut consequuntur consequatur quis.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Fugit deserunt iste earum.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Autem dolor explicabo omnis vitae ut voluptas. Animi unde fugiat consequuntur rem. Autem esse quae atque porro placeat. Facere error non dicta et qui est.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Ut et sequi placeat et illo.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Nihil impedit praesentium repellat ipsam. Minima perspiciatis neque et ratione velit. Vero qui sed tempore officiis odit possimus soluta. Ut et illo aut sed.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Sit et autem quas.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Quo nobis omnis qui nesciunt.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"Omnis et et quo est odit.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Modi qui quia vero.\",\n                    \"status\": 1\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Omnis rerum unde et consectetur libero porro velit. Qui suscipit ipsum repellat aut labore est laborum cumque.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Ipsam unde aliquam aut.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Ut sint aperiam ea qui error.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"Ut laudantium nobis aut.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Quas fuga at sequi itaque.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Tempore officiis reprehenderit commodi iste perferendis dolor perspiciatis est. Dolorum officiis quos cupiditate ipsa placeat. Id et iste qui. Id a recusandae voluptatem.\",\n            \"answers\": []\n        },\n        {\n            \"question_text\": \"Explicabo quod mollitia at eligendi. Unde perspiciatis rerum rerum eius. Est labore quidem et ut ea ut ea.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Natus pariatur vel saepe.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Beatae hic qui reprehenderit.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"Laboriosam est id qui.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Eaque placeat itaque qui aut. Aut debitis enim est voluptatem magnam. Debitis labore tempore ex dolor quasi.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Nemo vero sunt velit et.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Doloribus cumque aut vero.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Harum nostrum minus excepturi autem qui. Officiis a ullam cumque perspiciatis et et magnam inventore. Sunt accusantium quasi est dicta.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"At vero dolores quia.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"Eius ut qui adipisci maxime.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Qui non omnis dolore.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Eos culpa doloremque nesciunt provident aperiam. Consequatur asperiores et laboriosam iusto velit.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Est placeat iusto cumque.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"Modi cum est voluptas.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"Aut eos tempore et ea aut.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Dolore et qui et accusantium.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Enim consequatur sed voluptas laboriosam natus. Eius aliquid consequatur molestiae quia similique dolor. Et sit debitis amet commodi nulla ut.\",\n            \"answers\": []\n        },\n        {\n            \"question_text\": \"Hic qui quis omnis. Enim modi id odit maxime vel voluptate quasi libero.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Aut nulla qui dolores.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Architecto optio aut nihil dolores. Est nesciunt ratione nihil est cupiditate perferendis. A sit magnam id nisi rerum eos. Rerum fugit voluptas voluptatem.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Et hic fuga ut sed voluptas.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"Enim velit sunt voluptatem.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Corporis sint quam excepturi.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Et nihil et adipisci.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Consequatur dolores vel voluptatem quibusdam. Ut ipsam consequatur nostrum architecto totam ea sit iste. Nihil hic officia iure officia illo possimus. Natus est possimus cum deleniti laborum nihil.\",\n            \"answers\": []\n        },\n        {\n            \"question_text\": \"Voluptas dolorem voluptas sapiente. Sunt repellat et temporibus sunt tenetur eum ut. Aut accusantium sapiente ea minima est quod. Ut amet voluptate temporibus beatae ut voluptas omnis.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Et quia est magnam atque.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Ea mollitia quia sed.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Sed et dolor molestiae id expedita placeat voluptatem et. Sit eius assumenda placeat alias mollitia nostrum. Voluptas laborum culpa velit in est eveniet.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Rerum alias eaque quas ab id.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Doloribus unde ut consequuntur sed et temporibus sit. Ipsa et rem ratione rerum et nobis.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Quam rerum vitae eos sit.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Nulla itaque porro enim in.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Sapiente officia quae cumque et omnis et. Inventore sit aut accusantium dolor assumenda autem est. Minima qui sunt eveniet quam occaecati.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Et eveniet incidunt est.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Est neque eaque ut aperiam.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Et quos quae nulla sunt.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"In quia dolore vitae reiciendis. Iure corrupti reprehenderit non perspiciatis qui ea. Consequuntur odit ea et modi.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Assumenda et dolorum magni.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Qui et cum vitae.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Autem id aut ut incidunt.\",\n                    \"status\": 1\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Expedita rerum omnis voluptate fuga. Minus vel id aliquam non rem commodi id. Officia fugit consectetur vitae nihil.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Iusto ad aspernatur quam.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Ipsam alias beatae culpa.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Animi qui delectus odio quia voluptatibus doloremque sed. Repudiandae consequatur harum ea impedit velit accusamus excepturi.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Molestias sit enim laborum.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Officia minima aut explicabo omnis deserunt amet. Sunt saepe facere deserunt. Eveniet repellat quos in ut et praesentium consectetur.\",\n            \"answers\": []\n        },\n        {\n            \"question_text\": \"Dolorem nam velit illum. Voluptas tenetur nihil sed qui at. Velit sapiente placeat ipsa corporis quis officia. Fugiat eos iusto voluptatum eligendi.\",\n            \"answers\": []\n        },\n        {\n            \"question_text\": \"Voluptatem quo voluptatibus sed explicabo. Ea molestiae non placeat sit rerum in eveniet. Explicabo explicabo doloribus impedit blanditiis sed quia aliquid natus.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Expedita sed enim earum eos.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Dignissimos maxime iusto atque in harum officiis. Nemo in accusamus sapiente fuga. Omnis fugit qui omnis dignissimos.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Et non eaque maiores eos.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Et quidem consequuntur omnis.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Aut excepturi sequi debitis.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Aut in esse voluptatum eveniet repellat deserunt et. Vero ut excepturi quaerat aut. Enim qui at voluptate perferendis maiores sit. Nam qui officia possimus eaque quae aliquid magnam placeat.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Dolore est veritatis est in.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"Corporis illo fuga ut quidem.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Sit in provident aliquid non.\",\n                    \"status\": 1\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Aut sunt repellendus ipsum accusantium accusantium debitis aspernatur quia. Minus commodi velit cupiditate qui non voluptatem totam. Quo quibusdam iusto alias aliquid maiores.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Et fugiat et in accusamus.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Repellendus eum ad quia. Repellendus ipsa dolore dolorem saepe quos et et. Eaque tenetur autem eum voluptatem magnam. Maxime doloremque consectetur in itaque repellat itaque.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Quo minus nulla iste dolorem.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Ut distinctio sint provident.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"Aut cum dolore aliquam ut.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Est praesentium vitae autem labore in facere. Et voluptatibus dolorum similique voluptas debitis eum fugit. Vitae molestias eum voluptas sunt consequuntur eius. Quaerat facilis ut voluptatem omnis.\",\n            \"answers\": []\n        },\n        {\n            \"question_text\": \"Voluptates et dolor quos nam ipsa ex et labore. Omnis corrupti autem eos provident. Ipsam ducimus iusto illo.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Et reiciendis ex sunt.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"A est cupiditate minus aut.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Ea dolorum illo alias.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Enim ut illo sit eligendi.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Beatae aut quas labore autem.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Sunt tenetur sequi id repudiandae. Ut repellendus dolor rem ea. Dolores esse cupiditate voluptas maxime dolores. Est incidunt eius quis quod qui.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Aut quas nisi sunt et.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Quidem et quam omnis.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Voluptatem cupiditate quaerat fugiat ut laborum nihil. Natus quisquam quidem eos soluta.\",\n            \"answers\": []\n        },\n        {\n            \"question_text\": \"Amet quis delectus quos. Sit enim sed voluptatum non. Exercitationem voluptatum ut commodi.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Qui sit est ea est.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Numquam quo nihil impedit distinctio dolor omnis. Dolor expedita tempore adipisci quia. Aut voluptatem iusto libero cum soluta.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Eos dolor in ipsam possimus.\",\n                    \"status\": 0\n                }\n            ]\n        },\n        {\n            \"question_text\": \"Et qui doloribus ratione ut aut et voluptate. Maiores eaque sed quidem fugit excepturi eos distinctio.\",\n            \"answers\": []\n        },\n        {\n            \"question_text\": \"Nam quaerat repellat ratione et officia dignissimos quasi. Accusantium cupiditate quaerat qui quos. Eligendi odio et ipsam voluptatum.\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"Ipsam ea quod vel soluta.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Et cum aperiam nemo.\",\n                    \"status\": 1\n                },\n                {\n                    \"answer_text\": \"Ipsam et incidunt animi.\",\n                    \"status\": 0\n                },\n                {\n                    \"answer_text\": \"Et voluptatem quia non quae.\",\n                    \"status\": 1\n                }\n            ]\n        }\n    ],\n    \"status\": true,\n    \"message\": null,\n    \"statusCode\": 200\n}"
+								}
+							]
+						},
+						{
+							"name": "choose exam by exam question",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "code",
+										"value": "123456",
+										"description": "required |string ",
+										"type": "text",
+										"equals": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://national.cliprz.org/api/user/exams/exam?college_uuid=06ae1f82-8df5-413f-bddb-bc2c1fc6ea51&specialty_uuid=e9d9a3b4-7448-4dad-a915-8443e131ff96&exam_uuid=8c0da07e-2ad6-4697-9dfd-d8dc626d75e2",
+									"protocol": "https",
+									"host": [
+										"national",
+										"cliprz",
+										"org"
+									],
+									"path": [
+										"api",
+										"user",
+										"exams",
+										"exam"
+									],
+									"query": [
+										{
+											"key": "college_uuid",
+											"value": "06ae1f82-8df5-413f-bddb-bc2c1fc6ea51",
+											"description": "required |string "
+										},
+										{
+											"key": "specialty_uuid",
+											"value": "e9d9a3b4-7448-4dad-a915-8443e131ff96",
+											"description": "required |string "
+										},
+										{
+											"key": "exam_uuid",
+											"value": "8c0da07e-2ad6-4697-9dfd-d8dc626d75e2",
+											"description": "required |string "
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "show exam by degree",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "code",
+										"value": "123456",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "https://national.cliprz.org/api/user/exams/show?college_uuid=06ae1f82-8df5-413f-bddb-bc2c1fc6ea51&specialty_uuid=e9d9a3b4-7448-4dad-a915-8443e131ff96&degree=master",
+									"protocol": "https",
+									"host": [
+										"national",
+										"cliprz",
+										"org"
+									],
+									"path": [
+										"api",
+										"user",
+										"exams",
+										"show"
+									],
+									"query": [
+										{
+											"key": "college_uuid",
+											"value": "06ae1f82-8df5-413f-bddb-bc2c1fc6ea51",
+											"description": "required |string"
+										},
+										{
+											"key": "specialty_uuid",
+											"value": "e9d9a3b4-7448-4dad-a915-8443e131ff96",
+											"description": "required |string"
+										},
+										{
+											"key": "degree",
+											"value": "master",
+											"description": "required |string | values:master ,graduation"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "choose exame by subject",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "code",
+										"value": "123456",
+										"type": "text",
+										"equals": true
+									}
+								],
+								"url": {
+									"raw": "https://national.cliprz.org/api/user/exams/subject?college_uuid=06ae1f82-8df5-413f-bddb-bc2c1fc6ea51&subject_uuid=661bff2b-c2a9-4fcc-8ea2-b3958eb40a5e",
+									"protocol": "https",
+									"host": [
+										"national",
+										"cliprz",
+										"org"
+									],
+									"path": [
+										"api",
+										"user",
+										"exams",
+										"subject"
+									],
+									"query": [
+										{
+											"key": "college_uuid",
+											"value": "06ae1f82-8df5-413f-bddb-bc2c1fc6ea51",
+											"description": "required |string"
+										},
+										{
+											"key": "subject_uuid",
+											"value": "661bff2b-c2a9-4fcc-8ea2-b3958eb40a5e",
+											"description": "required |string"
+										}
+									]
+								},
+								"description": "This API endpoint sends an HTTP GET request to retrieve exams related to a specific subject for a user in a college. The request should include the 'college_uuid' and 'subject_uuid' as query parameters. The response will be in JSON format with an array of exam data, including question text and answers. Additionally, the response will include a status indicating success or failure, a message if applicable, and the status code.\n\nExample:\n\n``` http\nGET http://derrebni-3lwatany.test/api/user/exams/subject?college_uuid=06ae1f82-8df5-413f-bddb-bc2c1fc6ea51&subject_uuid=661bff2b-c2a9-4fcc-8ea2-b3958eb40a5e\n\n ```\n\nResponse:\n\n``` json\n{\n    \"data\": [\n        {\n            \"question_text\": \"\",\n            \"answers\": [\n                {\n                    \"answer_text\": \"\",\n                    \"status\": 0\n                }\n            ]\n        }\n    ],\n    \"status\": true,\n    \"message\": null,\n    \"statusCode\": 0,\n    \"college_uuid\": \"\"\n}\n\n ```"
+							},
+							"response": []
+						},
+						{
+							"name": "calculate exam marks",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "code",
+										"value": "123456",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{ \"data\": [\r\n        {\r\n            \"question_text\": \"Sint distinctio provident maxime distinctio reiciendis. Tempora itaque tempora culpa veniam commodi. Impedit dolore voluptatem deleniti molestias fuga atque ex. Nobis excepturi consequatur omnis.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Odio atque fugiat tenetur.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Quaerat quae dolor non.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Sed labore sit officiis et.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Possimus porro aut beatae.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"question_text\": \"Quia consequatur voluptatem ut voluptatibus perspiciatis molestiae. Consequatur hic fugiat provident ut. Ut a ut delectus numquam. Id enim cupiditate aut est debitis fugiat repellendus magnam.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Ab error temporibus quis.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Officia facere est repellat.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"question_text\": \"Quibusdam nam rem voluptatem tempore rem qui aut. Velit esse minima facere. Ducimus voluptatum qui qui.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Aliquid iure unde omnis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Quidem ut ut et voluptas.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"question_text\": \"Rerum labore laudantium eos ratione. Consequatur illo voluptates ea nisi cupiditate incidunt minima velit. Nisi et est fuga.\",\r\n            \"answers\": [ {\r\n                    \"answer_text\": \"Aliquid iure unde omnis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Quidem ut ut et voluptas.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }]\r\n        },\r\n        {\r\n            \"question_text\": \"Cum a et illum modi. Distinctio nesciunt recusandae et dignissimos. Aut qui natus quis omnis aliquam expedita itaque molestias. Exercitationem ipsum voluptas omnis quis consequatur pariatur.\",\r\n            \"answers\": [ {\r\n                    \"answer_text\": \"Aliquid iure unde omnis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Quidem ut ut et voluptas.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }]\r\n        },\r\n        {\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        },{\r\n            \"question_text\": \"Repellat sint neque eos quidem sed sed. Qui numquam odio voluptate perferendis illum in repellat itaque. Molestiae dolores et neque sint repudiandae quos.\",\r\n            \"answers\": [\r\n                {\r\n                    \"answer_text\": \"Fuga hic rerum fuga.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Fuga rerum adipisci facilis.\",\r\n                    \"status\": 0,\r\n                    \"choose\": 0\r\n                },\r\n                {\r\n                    \"answer_text\": \"Iusto culpa ut numquam ea.\",\r\n                    \"status\": 1,\r\n                    \"choose\": 1\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n   \r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://national.cliprz.org/api/user/exams/calculate?college_uuid=06ae1f82-8df5-413f-bddb-bc2c1fc6ea51",
+									"protocol": "https",
+									"host": [
+										"national",
+										"cliprz",
+										"org"
+									],
+									"path": [
+										"api",
+										"user",
+										"exams",
+										"calculate"
+									],
+									"query": [
+										{
+											"key": "college_uuid",
+											"value": "06ae1f82-8df5-413f-bddb-bc2c1fc6ea51"
+										}
+									]
+								},
+								"description": "### Calculate User Exam\n\nThis endpoint allows the user to calculate the exam score.\n\n#### Request Body\n\n- `data` (array of objects)\n    \n    - `question_text` (string, optional): The text of the question.\n    - `answers` (array of objects)\n        \n        - `answer_text` (string, optional): The text of the answer.\n        - `status` (boolean): The status of the answer.\n            \n        - `choose` (boolean): The chosen answer.\n            \n\n#### Query Parameters\n\n- `college_uuid` (string): The UUID of the college.\n    \n\n#### Response\n\n- `data` (object)\n    \n    - `questions` (array of objects)\n        \n        - `question_text` (string, optional): The text of the question.\n        - `answers` (array of objects)\n            \n            - `answer_text` (string, optional): The text of the answer.\n            - `status` (boolean): The status of the answer.\n                \n            - `choose` (boolean): The chosen answer.\n                \n    - `mark` (integer): The calculated exam score.\n- `status` (boolean): The status of the response.\n- `message` (string, optional): Any additional message.\n- `statusCode` (integer): The status code of the response.\n- `college_uuid` (string): The UUID of the college.\n    \n\n#### Example"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}

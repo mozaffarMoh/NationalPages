@@ -1,0 +1,94 @@
+.send-notify {
+    padding: 20px;
+    gap: 20px;
+
+    .select-spinner {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+        margin: 0px 10px 5px 0px;
+    }
+
+    input,
+    textarea {
+        font-size: 20px;
+        width: 50%;
+        height: 50px;
+        padding: 14px;
+        padding-right: 50px;
+        border-radius: 5px;
+        background: rgba(111, 40, 119, 0.05);
+        border: none;
+        overflow-y: hidden;
+
+        &:focus {
+            border: 1px solid;
+        }
+
+        &::placeholder {
+            color: rgba(111, 40, 119, 0.25);
+        }
+    }
+
+    textarea {
+        min-height: 150px;
+    }
+
+    button {
+        width: 50%;
+        height: 50px;
+        padding: 0px 10px;
+        border-radius: 5px;
+        background-color: #6F2877;
+        color: white;
+        border: 1px solid #6F2877;
+        transition: border .3s ease;
+
+        &:hover {
+            border: 3px solid #B9E5FB;
+            background-color: #6F2877;
+        }
+
+    }
+
+    .select-college {
+        width: 50%;
+        height: 40px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+
+    .success-Message {
+        width: 50%;
+        height: 50px;
+        background-color: #B9E5FB;
+        color: #6F2877;
+        border-radius: 10px;
+        margin-top: 10px;
+        overflow-y: hidden;
+
+        p {
+            margin-top: 15px;
+        }
+    }
+
+}
+
+
+
+@media (max-width : 800px) {
+    .send-notify {
+
+        .select-college,
+        button,
+        input,
+        textarea {
+            width: 90%;
+        }
+
+        .success-Message {
+            width: 90%;
+        }
+    }
+}

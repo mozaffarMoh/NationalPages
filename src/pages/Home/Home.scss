@@ -1,0 +1,40 @@
+.home {
+    flex-direction: column;
+
+    /* First Section */
+    .first-section {
+        width: 100%;
+        overflow-y: hidden;
+
+        .home-start-now {
+            width: 50%;
+            height: 450px;
+            padding: 0px 100px;
+        }
+
+        .home-ads {
+            width: 50%;
+        }
+    }
+}
+
+
+/* Responsive on 900px */
+@media (max-width : 900px) {
+
+    .home {
+        .first-section {
+            flex-direction: column;
+
+            .home-start-now,
+            .home-ads {
+                padding: 20px;
+                width: 100%;
+
+                .ads-content {
+                    width: 300px;
+                }
+            }
+        }
+    }
+}

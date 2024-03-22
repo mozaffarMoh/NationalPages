@@ -1,0 +1,46 @@
+.phone-input-edit {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 18px;
+
+
+    p {
+        overflow-y: hidden;
+    }
+
+
+    input {
+        width: 100%;
+        height: 57px;
+        padding: 14px;
+        padding-right: 50px;
+        border-radius: 5px;
+        background-color: #B9E5FB;
+        border: none;
+
+        &:focus {
+            border: 1px solid;
+        }
+    }
+
+    input::placeholder {
+        color: rgba(111, 40, 119, 0.25);
+    }
+
+    .phone-icon {
+        width: 20px;
+        position: absolute;
+        bottom: 20%;
+        right: 10px;
+    }
+
+    .edit-icon {
+        width: 20px;
+        position: absolute;
+        bottom: 20%;
+        left: 20px;
+    }
+}

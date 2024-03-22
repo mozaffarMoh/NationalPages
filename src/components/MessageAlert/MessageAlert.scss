@@ -1,0 +1,22 @@
+.message-alert {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    z-index: 120;
+
+    svg {
+        font-size: 17px;
+    }
+}
+
+.error-color {
+    svg path {
+        color: rgb(243, 30, 30)
+    }
+}
+
+.success-color {
+    svg path {
+        color: rgb(27, 190, 27);
+    }
+}

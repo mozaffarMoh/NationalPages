@@ -1,0 +1,18 @@
+.back-to {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 50px;
+    gap: 16px;
+
+    p {
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 300;
+    }
+
+    img {
+        cursor: pointer;
+        width: 25px;
+    }
+}

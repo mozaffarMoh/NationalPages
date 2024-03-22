@@ -1,0 +1,62 @@
+.admin-users {
+    width: 100%;
+
+
+    h2 {
+        margin: 20px;
+    }
+
+    .generate-code {
+        width: 80%;
+        margin-bottom: 20px;
+
+        input {
+            font-size: 20px;
+            width: 400px;
+            margin-top: 10px;
+            padding: 14px;
+            padding-right: 50px;
+            border-radius: 5px;
+            background: rgba(111, 40, 119, 0.05);
+            border: none;
+            overflow-y: hidden;
+
+            &:focus {
+                border: 1px solid;
+            }
+
+            &::placeholder {
+                color: rgba(111, 40, 119, 0.25);
+            }
+        }
+
+        button {
+            width: 400px;
+            height: 50px;
+            margin: 10px 0px;
+            background-color: #6F2877;
+            color: white;
+            border: 1px solid #6F2877;
+            transition: border .3s ease;
+
+            &:hover {
+                border: 3px solid #B9E5FB;
+                background-color: #6F2877;
+            }
+        }
+
+
+    }
+
+    .table-container {
+        width: 80%;
+
+        .ant-pagination {
+            direction: ltr;
+
+            .ant-pagination-item-link {
+                overflow-y: hidden;
+            }
+        }
+    }
+}

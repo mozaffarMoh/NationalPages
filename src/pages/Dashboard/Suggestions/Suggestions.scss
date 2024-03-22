@@ -1,0 +1,25 @@
+.suggestions-ads {
+
+    h2 {
+        margin: 20px;
+    }
+
+
+
+    .table-container {
+        width: 90%;
+
+        .ant-table-content {
+            overflow-x: auto;
+        }
+
+
+        .ant-pagination {
+            direction: ltr;
+
+            .ant-pagination-item-link {
+                overflow-y: hidden;
+            }
+        }
+    }
+}

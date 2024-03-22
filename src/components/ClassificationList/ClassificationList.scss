@@ -1,0 +1,53 @@
+.classificationList {
+    margin-bottom: 100px;
+
+    h1 {
+        margin: 100px;
+    }
+
+    .classificationList-items {
+        width: 80%;
+        flex-wrap: wrap;
+        gap: 51px 65px;
+
+        .classificationList-item {
+            width: fit-content;
+            padding: 32px 24px;
+            border-radius: 5px;
+            border: 3px solid #6F2877;
+            transition: border .3s ease;
+            cursor: pointer;
+
+            &:hover {
+                border: 3px solid #B9E5FB;
+            }
+
+            p {
+                margin-top: 15px;
+                font-size: 25px;
+                font-weight: 500;
+            }
+
+        }
+    }
+}
+
+
+
+/* Responsive */
+@media (max-width:600px) {
+    .classificationList {
+        .classificationList-items {
+            width: 100%;
+
+            .classificationList-item {
+                padding: 10px 26px;
+
+                p {
+                    font-size: 18px;
+                }
+            }
+
+        }
+    }
+}

@@ -1,0 +1,94 @@
+.admin-ads {
+
+    h2 {
+        margin: 20px;
+    }
+
+
+
+    .table-container {
+        width: 90%;
+
+        .ant-table-content {
+            overflow-x: auto;
+        }
+
+
+        .ant-pagination {
+            direction: ltr;
+
+            .ant-pagination-item-link {
+                overflow-y: hidden;
+            }
+        }
+    }
+
+    .add-ads {
+        width: 90%;
+
+        input {
+            font-size: 20px;
+            width: 400px;
+            margin: 10px 10px 0px 0px;
+            padding: 14px;
+            padding-right: 50px;
+            border-radius: 5px;
+            background: rgba(111, 40, 119, 0.05);
+            border: none;
+            overflow-y: hidden;
+
+            &:focus {
+                border: 1px solid;
+            }
+
+            &::placeholder {
+                color: rgba(111, 40, 119, 0.25);
+            }
+        }
+
+        .error-message {
+            width: 100px;
+            font-size: 10px;
+            color: red;
+        }
+
+        button {
+            width: 400px;
+            height: 50px;
+            margin: 10px 0px;
+            border-radius: 5px;
+            background-color: #6F2877;
+            color: white;
+            border: 1px solid #6F2877;
+            transition: border .3s ease;
+
+            &:hover {
+                border: 3px solid #B9E5FB;
+                background-color: #6F2877;
+            }
+        }
+
+        .downlaod-image {
+            width: 200px;
+            height: 60px;
+            margin: 10px 10px 0px 0px;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #B9E5FB;
+
+            &:hover {
+                background-color: #B9E5FBAA;
+            }
+        }
+
+        #download-image-id {
+            display: none;
+        }
+
+        .images-array-item {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+        }
+    }
+}

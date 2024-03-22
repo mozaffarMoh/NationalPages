@@ -1,0 +1,22 @@
+.subject-selection {
+    .subject-selection-ads {
+        width: 100%;
+
+
+        .ads {
+            width: 40%;
+            max-height: 420px;
+        }
+    }
+}
+
+/* Responsive */
+@media (max-width:900px) {
+    .subject-selection {
+        .subject-selection-ads {
+            .ads {
+                width: 70%;
+            }
+        }
+    }
+}

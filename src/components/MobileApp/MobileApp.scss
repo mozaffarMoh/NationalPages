@@ -1,0 +1,71 @@
+.mobile-app {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+    .mobile-background {
+        background: rgba(70, 69, 71, 0.05);
+        width: 100%;
+        padding: 30px;
+        justify-content: flex-end;
+    }
+
+    .download-from-stores {
+        display: flex;
+        flex-direction: column;
+        font-size: 20px;
+        margin-left: 200px;
+
+        img {
+            width: 300px;
+        }
+    }
+
+    .mobile-image {
+        position: absolute;
+        right: 100px;
+        width: 500px;
+    }
+}
+
+
+/* Responsive on 1200px */
+@media (max-width : 1200px) {
+    .mobile-app {
+        .download-from-stores {
+            font-size: 15px;
+            margin-left: 200px;
+
+            img {
+                width: 200px;
+            }
+        }
+
+        .mobile-image {
+            right: 0px;
+            width: 400px;
+        }
+    }
+
+}
+
+/* Responsive on 800px */
+@media (max-width : 800px) {
+    .mobile-app {
+        height: 100%;
+        padding: 100px 20px;
+
+        .mobile-background {
+            justify-content: center;
+        }
+
+        .download-from-stores {
+            margin: 0px;
+        }
+
+        .mobile-image {
+            display: none;
+        }
+    }
+
+}

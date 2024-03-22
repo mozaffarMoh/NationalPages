@@ -1,0 +1,40 @@
+.dawrat-details {
+    width: 100%;
+    gap: 20px;
+
+    .dawrat-details-item {
+        width: 50%;
+
+        h1 {
+            color: #464547;
+            font-size: 40px;
+            font-weight: 300;
+        }
+
+        p {
+            color: #000;
+            font-size: 20px;
+            font-weight: 300;
+            margin: 0px 40px;
+        }
+    }
+}
+
+
+/* Responsive */
+@media (max-width : 850px) {
+    .dawrat-details {
+
+        .dawrat-details-item {
+            width: 80%;
+
+            h1 {
+                font-size: 35px;
+            }
+
+            p {
+                font-size: 14px
+            }
+        }
+    }
+}
