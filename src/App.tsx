@@ -21,7 +21,7 @@ import AdminExams from "./pages/Dashboard/AdminExams/AdminExams";
 function App() {
   return (
     <>
-      <Router>
+      <Router basename="NationalPages">
         <Routes>
           {/* User Routes */}
           <Route path="/" element={<Home />} />
