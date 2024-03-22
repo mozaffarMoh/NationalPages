@@ -100,14 +100,15 @@ const Header = () => {
             <p>الإختصاصات</p>
           </a>
         )}
-        <a
+        <NavLink
+          to={"/dashboard/login"}
           className={`link-template ${
             active === "about" && "link-template-active"
           }`}
           onClick={() => handleSetActive("about")}
         >
           <p>من نحن</p>
-        </a>
+        </NavLink>
       </div>
 
       {/* Login Button and Profile porperties */}
