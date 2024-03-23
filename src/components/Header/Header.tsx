@@ -24,7 +24,7 @@ const Header = () => {
   const [showProfileList, setShowProfileList] = React.useState(false);
   const basePath = window.location.pathname.split("/").slice(0, -1).join("/");
   const [active, setActive] = React.useState(
-    location.pathname == `/${basePath}/` ? "main" : ""
+    location.pathname == `${basePath}/` ? "main" : ""
   );
 
   const handleSetActive = (value: string) => {
