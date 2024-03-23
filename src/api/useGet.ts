@@ -64,7 +64,7 @@ const useGet = (endPoint: any, isObject?: any) => {
                 navigate(`/dashboard/login`);
             } else {
                 if (
-                    (location.pathname !== basePath && location.pathname !== `${basePath}/register`)
+                    (location.pathname !== basePath + '/' && location.pathname !== `${basePath}/register`)
                 ) {
                     navigate('/');
                 }
