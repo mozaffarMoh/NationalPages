@@ -1,13 +1,12 @@
 import "./AdminRegister.scss";
 import { endPoint } from "../../../api/endPoints";
 import React from "react";
-import AdminHeader from "../../../components/Dashboard/AdminHeader/AdminHeader";
 import { useForm } from "react-hook-form";
-import Loading from "../../../components/Loading/Loading";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import usePost from "../../../api/usePost";
-import MessageAlert from "../../../components/MessageAlert/MessageAlert";
+import { AdminHeader } from "../../../components/Dashboard";
+import { Loading, MessageAlert } from "../../../components";
 
 const AdminRegister = () => {
   const [name, setName] = React.useState("");

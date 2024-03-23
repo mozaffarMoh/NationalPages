@@ -1,5 +1,4 @@
 import React from "react";
-import AdminHeader from "../../../components/Dashboard/AdminHeader/AdminHeader";
 import "./AdminSubjects.scss";
 import { endPoint } from "../../../api/endPoints";
 import { Table } from "antd";
@@ -7,8 +6,8 @@ import useGet from "../../../api/useGet";
 import { Button, Spinner } from "react-bootstrap";
 import { FaRegEdit } from "react-icons/fa";
 import { BsCheckSquare, BsXCircle } from "react-icons/bs";
-import Loading from "../../../components/Loading/Loading";
-import MessageAlert from "../../../components/MessageAlert/MessageAlert";
+import { AdminHeader } from "../../../components/Dashboard";
+import { Loading, MessageAlert } from "../../../components";
 import usePost from "../../../api/usePost";
 
 const AdminSubjects = () => {

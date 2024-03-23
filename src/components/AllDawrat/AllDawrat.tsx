@@ -6,7 +6,7 @@ import useGet from "../../api/useGet";
 import { endPoint } from "../../api/endPoints";
 import Cookies from "js-cookie";
 import { Spinner } from "react-bootstrap";
-import Retry from "../Retry/Retry";
+import { Retry } from "..";
 
 const AllDawrat = () => {
   const navigate = useNavigate();

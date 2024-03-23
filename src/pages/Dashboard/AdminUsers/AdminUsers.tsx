@@ -1,13 +1,12 @@
 import { Table } from "antd";
 import { endPoint } from "../../../api/endPoints";
 import useGet from "../../../api/useGet";
-import AdminHeader from "../../../components/Dashboard/AdminHeader/AdminHeader";
 import "./AdminUsers.scss";
 import React from "react";
 import { Button, Spinner } from "react-bootstrap";
-import Loading from "../../../components/Loading/Loading";
 import usePost from "../../../api/usePost";
-import MessageAlert from "../../../components/MessageAlert/MessageAlert";
+import { AdminHeader } from "../../../components/Dashboard";
+import { Loading, MessageAlert } from "../../../components";
 
 const AdminUsers = () => {
   const [data, , loading]: any = useGet(endPoint.showUsers);

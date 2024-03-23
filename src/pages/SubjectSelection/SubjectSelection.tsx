@@ -1,11 +1,24 @@
 import "./SubjectSelection.scss";
-import Ads from "../../components/Ads/Ads";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
-import ClassificationButtons from "../../components/ClassificationButtons/ClassificationButtons";
-import ClassificationList from "../../components/ClassificationList/ClassificationList";
+import React from "react";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
+import {
+  Ads,
+  ClassificationButtons,
+  ClassificationList,
+  Footer,
+  Header,
+} from "../../components";
 
 const SubjectSelection = () => {
+  const navigate = useNavigate();
+  const token = Cookies.get("token");
+
+  React.useEffect(() => {
+    if (!token) {
+      navigate("/");
+    }
+  }, []);
   return (
     <div className="subject-selection">
       <Header />

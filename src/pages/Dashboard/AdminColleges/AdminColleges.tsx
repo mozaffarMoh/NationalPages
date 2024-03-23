@@ -1,15 +1,14 @@
 import "./AdminColleges.scss";
+import React from "react";
 import { Table } from "antd";
 import { endPoint } from "../../../api/endPoints";
 import useGet from "../../../api/useGet";
-import AdminHeader from "../../../components/Dashboard/AdminHeader/AdminHeader";
 import { FaUpload } from "react-icons/fa";
-import React from "react";
 import { useForm } from "react-hook-form";
 import { Spinner } from "react-bootstrap";
-import Loading from "../../../components/Loading/Loading";
-import MessageAlert from "../../../components/MessageAlert/MessageAlert";
 import usePost from "../../../api/usePost";
+import { AdminHeader } from "../../../components/Dashboard";
+import { Loading, MessageAlert } from "../../../components";
 
 const AdminColleges = () => {
   const [data, getData, loading]: any = useGet(endPoint.adminColleges);

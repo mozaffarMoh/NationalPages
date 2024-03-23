@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 import "./Specialists.scss";
-import ChooseSpecialistOnStart from "../ChooseSpecialist/ChooseSpecialistOnStart";
 import useGet from "../../api/useGet";
 import { endPoint } from "../../api/endPoints";
 import Cookies from "js-cookie";
 import LoginRequired from "../LoginRequired/LoginRequired";
 import { Spinner } from "react-bootstrap";
+import { ChooseSpecialistOnStart } from "..";
 
 const Specialists = () => {
   const collegeRef: any = useRef(null);

@@ -1,13 +1,12 @@
-import { BsArrowLeftCircle } from "react-icons/bs";
 import "./AllQuestions.scss";
+import { BsArrowLeftCircle } from "react-icons/bs";
 import useGet from "../../../api/useGet";
 import { endPoint } from "../../../api/endPoints";
 import { Spinner } from "react-bootstrap";
 import React from "react";
 import { AnswersArrayText } from "./AnswersArrayText";
 import usePost from "../../../api/usePost";
-import Loading from "../../Loading/Loading";
-import MessageAlert from "../../MessageAlert/MessageAlert";
+import { Loading, MessageAlert } from "../..";
 
 const AllQuestions = ({ setShowAllQuestions, examID }: any) => {
   const [data, getData, loading] = useGet(endPoint.allQuestions + examID);

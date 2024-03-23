@@ -2,6 +2,7 @@
 
     h2 {
         margin: 20px;
+        line-height: 2;
     }
 
 
@@ -13,11 +14,11 @@
         cursor: pointer;
     }
 
-    .select-spinner{
-       width : 20px;
-       height: 20px;
-       font-size: 10px;
-       margin: 0px 10px 5px 0px;
+    .select-spinner {
+        width: 20px;
+        height: 20px;
+        font-size: 10px;
+        margin: 0px 10px 5px 0px;
     }
 
     .edit-field {

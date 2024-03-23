@@ -5,8 +5,7 @@ import useGet from "../../api/useGet";
 import { endPoint } from "../../api/endPoints";
 import React from "react";
 import Cookies from "js-cookie";
-import Retry from "../Retry/Retry";
-import MessageAlert from "../MessageAlert/MessageAlert";
+import { MessageAlert, Retry } from "..";
 
 const ChooseSpecialistOnStart = ({ setShowChooseSpecialists }: any) => {
   const navigate = useNavigate();

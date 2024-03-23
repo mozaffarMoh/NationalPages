@@ -1,17 +1,27 @@
 import "./QuizPage.scss";
 import React from "react";
-import Header from "../../components/Header/Header";
-import BackTo from "../../components/BackTo/BackTo";
-import Instructions from "../../components/Instructions/Instructions";
-import QuizQuestions from "../../components/QuizQuestions/QuizQuestions";
-import DawratDetails from "../../components/DawratDetails/DawratDetails";
-import Footer from "../../components/Footer/Footer";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Cookies from "js-cookie";
+import {
+  BackTo,
+  DawratDetails,
+  Footer,
+  Header,
+  Instructions,
+  QuizQuestions,
+} from "../../components";
 
 const QuizPage = () => {
   const [showQuestions, setShowQuestions] = React.useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const token = Cookies.get("token");
 
+  React.useEffect(() => {
+    if (!token) {
+      navigate("/");
+    }
+  }, []);
   return (
     <div>
       <Header />

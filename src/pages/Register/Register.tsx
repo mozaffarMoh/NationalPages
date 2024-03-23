@@ -1,15 +1,16 @@
 import "./Register.scss";
 import registerImage from "../../assets/images/Login/sign-up.svg";
-import UsernameInput from "../../components/login-singup/UsernameInput/UsernameInput";
-import PhoneInput from "../../components/login-singup/PhoneInput/PhoneInput";
-import RegisterButton from "../../components/login-singup/RegisterButton/RegisterButton";
-import ChooseCollege from "../../components/login-singup/ChooseCollege/ChooseCollege";
 import React from "react";
 import { endPoint } from "../../api/endPoints";
-import Loading from "../../components/Loading/Loading";
-import MessageAlert from "../../components/MessageAlert/MessageAlert";
 import usePost from "../../api/usePost";
 import { useForm } from "react-hook-form";
+import { Loading, MessageAlert } from "../../components";
+import {
+  RegisterButton,
+  UsernameInput,
+  PhoneInput,
+  ChooseCollege,
+} from "../../components/login-singup";
 
 const Register = () => {
   const [name, setName] = React.useState("");
@@ -37,10 +38,10 @@ const Register = () => {
   }, [success]);
 
   return (
-    <div className="register flexCenter row">
+    <div className="register flexCenter">
       {loading && <Loading />}
 
-      <div className="register-form-background col-6 flexCenter">
+      <div className="register-form-background flexCenter">
         {success && (
           <MessageAlert message="تم إنشاء الحساب بنجاح " type="success" />
         )}
@@ -64,7 +65,7 @@ const Register = () => {
           <RegisterButton />
         </form>
       </div>
-      <div className="register-image col-6 flexCenter">
+      <div className="register-image flexCenter">
         <img src={registerImage} alt="" />
       </div>
     </div>

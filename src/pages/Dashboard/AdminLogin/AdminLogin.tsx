@@ -5,7 +5,7 @@ import { endPoint } from "../../../api/endPoints";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import { useForm } from "react-hook-form";
-import Loading from "../../../components/Loading/Loading";
+import { Loading } from "../../../components";
 
 const AdminLogin = () => {
   const router = useNavigate();

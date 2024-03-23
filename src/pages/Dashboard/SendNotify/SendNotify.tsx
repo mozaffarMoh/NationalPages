@@ -1,14 +1,13 @@
 import React from "react";
-import AdminHeader from "../../../components/Dashboard/AdminHeader/AdminHeader";
 import "./SendNotify.scss";
 import { endPoint } from "../../../api/endPoints";
 import useGet from "../../../api/useGet";
 import { Spinner } from "react-bootstrap";
-import Loading from "../../../components/Loading/Loading";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import MessageAlert from "../../../components/MessageAlert/MessageAlert";
 import usePost from "../../../api/usePost";
+import { AdminHeader } from "../../../components/Dashboard";
+import { Loading, MessageAlert } from "../../../components";
 
 const SendNotify = () => {
   const navigate = useNavigate();

@@ -1,12 +1,12 @@
-import React from "react";
 import "./AdminHeader.scss";
+import React from "react";
 import { RiMenu5Line } from "react-icons/ri";
 import { NavLink, useNavigate } from "react-router-dom";
 import { LinksArray } from "./LinksArray";
 import apiNational from "../../../api/apiNational";
 import { endPoint } from "../../../api/endPoints";
 import Cookies from "js-cookie";
-import Loading from "../../Loading/Loading";
+import { Loading } from "../..";
 
 const AdminHeader = () => {
   const [showHeaderText, setShowHeaderText] = React.useState(false);

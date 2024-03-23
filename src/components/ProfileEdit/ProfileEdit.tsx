@@ -1,17 +1,19 @@
 import "./ProfileEdit.scss";
 import avatarIcon from "../../assets/images/ProfileEdit/avatar.svg";
 import { Button, Spinner } from "react-bootstrap";
-import UsernameInputEdit from "../../components/UsernameInputEdit/UsernameInputEdit";
-import PhoneInputEdit from "../../components/PhoneInputEdit/PhoneInputEdit";
 import { endPoint } from "../../api/endPoints";
 import Cookies from "js-cookie";
 import useGet from "../../api/useGet";
 import React from "react";
-import MessageAlert from "../MessageAlert/MessageAlert";
-import Loading from "../Loading/Loading";
 import usePost from "../../api/usePost";
-import Retry from "../Retry/Retry";
 import { useForm } from "react-hook-form";
+import {
+  Loading,
+  MessageAlert,
+  PhoneInputEdit,
+  Retry,
+  UsernameInputEdit,
+} from "..";
 
 const ProfileEdit = ({
   setShowProfileEdit,

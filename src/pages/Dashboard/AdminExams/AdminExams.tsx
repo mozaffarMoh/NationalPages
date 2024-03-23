@@ -1,16 +1,17 @@
 import React from "react";
-import AdminHeader from "../../../components/Dashboard/AdminHeader/AdminHeader";
 import "./AdminExams.scss";
 import { endPoint } from "../../../api/endPoints";
 import { Table } from "antd";
 import useGet from "../../../api/useGet";
 import { Button, Spinner } from "react-bootstrap";
 import { IoAddCircleSharp, IoBookOutline } from "react-icons/io5";
-import AddQuestion from "../../../components/Dashboard/AddQuestion/AddQuestion";
-import Loading from "../../../components/Loading/Loading";
-import MessageAlert from "../../../components/MessageAlert/MessageAlert";
 import usePost from "../../../api/usePost";
-import AllQuestions from "../../../components/Dashboard/AllQuestions/AllQuestions";
+import {
+  AddQuestion,
+  AdminHeader,
+  AllQuestions,
+} from "../../../components/Dashboard";
+import { Loading, MessageAlert } from "../../../components";
 
 const AdminExams = () => {
   const [data, , loading]: any = useGet(endPoint.adminColleges);

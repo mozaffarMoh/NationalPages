@@ -1,14 +1,15 @@
 import "./Login.scss";
-import helloImage from "../../assets/images/Login/login.svg";
-import UsernameInput from "../../components/login-singup/UsernameInput/UsernameInput";
-import PasswordInput from "../../components/login-singup/PasswordInput/PasswordInput";
-import LoginButton from "../../components/login-singup/LoginButton/LoginButton";
 import React from "react";
+import helloImage from "../../assets/images/Login/login.svg";
 import { endPoint } from "../../api/endPoints";
-import Loading from "../../components/Loading/Loading";
-import usePost from "../../api/usePost";
-import MessageAlert from "../../components/MessageAlert/MessageAlert";
 import { useForm } from "react-hook-form";
+import usePost from "../../api/usePost";
+import { Loading, MessageAlert } from "../../components";
+import {
+  LoginButton,
+  PasswordInput,
+  UsernameInput,
+} from "../../components/login-singup";
 
 const Login = () => {
   const [name, setName] = React.useState("");

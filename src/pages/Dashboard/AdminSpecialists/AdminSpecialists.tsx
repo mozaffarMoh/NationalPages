@@ -1,15 +1,14 @@
-import React from "react";
-import AdminHeader from "../../../components/Dashboard/AdminHeader/AdminHeader";
 import "./AdminSpecialists.scss";
+import React from "react";
 import { endPoint } from "../../../api/endPoints";
 import { Table } from "antd";
 import useGet from "../../../api/useGet";
 import { Button, Spinner } from "react-bootstrap";
 import { FaRegEdit } from "react-icons/fa";
 import { BsCheckSquare, BsXCircle } from "react-icons/bs";
-import Loading from "../../../components/Loading/Loading";
 import usePost from "../../../api/usePost";
-import MessageAlert from "../../../components/MessageAlert/MessageAlert";
+import { AdminHeader } from "../../../components/Dashboard";
+import { Loading, MessageAlert } from "../../../components";
 
 const AdminSpecialists = () => {
   const [data, , loading]: any = useGet(endPoint.adminColleges);

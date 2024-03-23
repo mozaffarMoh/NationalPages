@@ -4,7 +4,7 @@ import { endPoint } from "../../api/endPoints";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { Spinner } from "react-bootstrap";
-import Retry from "../Retry/Retry";
+import { Retry } from "..";
 
 const ClassificationList = () => {
   const navigate = useNavigate();

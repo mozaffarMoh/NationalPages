@@ -1,0 +1,10 @@
+export { default as AdminAds } from './AdminAds/AdminAds';
+export { default as AdminColleges } from './AdminColleges/AdminColleges';
+export { default as AdminExams } from './AdminExams/AdminExams';
+export { default as AdminLogin } from './AdminLogin/AdminLogin';
+export { default as AdminRegister } from './AdminRegister/AdminRegister';
+export { default as AdminUsers } from './AdminUsers/AdminUsers';
+export { default as AdminSpecialists } from './AdminSpecialists/AdminSpecialists';
+export { default as AdminSubjects } from './AdminSubjects/AdminSubjects';
+export { default as SendNotify } from './SendNotify/SendNotify';
+export { default as Suggestions } from './Suggestions/Suggestions';

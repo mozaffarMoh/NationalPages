@@ -3,15 +3,13 @@ import { Button } from "react-bootstrap";
 import logo from "../../assets/images/Header/logo darebni.png";
 import profileIcon from "../../assets/images/Header/profile.svg";
 import logoutIcon from "../../assets/images/Header/logout.svg";
-import ProfileEdit from "../ProfileEdit/ProfileEdit";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import React, { useRef } from "react";
 import { Transition } from "react-transition-group";
 import Cookies from "js-cookie";
 import { endPoint } from "../../api/endPoints";
-import Loading from "../Loading/Loading";
-import MessageAlert from "../MessageAlert/MessageAlert";
 import apiNational from "../../api/apiNational";
+import { Loading, MessageAlert, ProfileEdit } from "..";
 
 const Header = () => {
   const token = Cookies.get("token");
@@ -100,15 +98,14 @@ const Header = () => {
             <p>الإختصاصات</p>
           </a>
         )}
-        <NavLink
-          to={"/dashboard/login"}
+        <a
           className={`link-template ${
             active === "about" && "link-template-active"
           }`}
           onClick={() => handleSetActive("about")}
         >
           <p>من نحن</p>
-        </NavLink>
+        </a>
       </div>
 
       {/* Login Button and Profile porperties */}
@@ -135,7 +132,7 @@ const Header = () => {
                         className="handle-profile-item flexStart"
                         onClick={() => setShowProfileEdit(true)}
                       >
-                        <div className="icon-field mt-3">
+                        <div className="icon-field">
                           <img src={profileIcon} />{" "}
                         </div>
                         <p className="mt-3">تعديل الملف الشخصي</p>
@@ -146,7 +143,7 @@ const Header = () => {
                         className="handle-profile-item flexCenter"
                         onClick={handleLogout}
                       >
-                        <div className="icon-field mt-3">
+                        <div className="icon-field mt-2">
                           <img src={logoutIcon} />
                         </div>
                         <p className="mt-3">تسجيل الخروج</p>

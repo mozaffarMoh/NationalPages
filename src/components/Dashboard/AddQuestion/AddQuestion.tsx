@@ -3,11 +3,10 @@ import "./AddQuestion.scss";
 import { endPoint } from "../../../api/endPoints";
 import { BsArrowLeftCircle } from "react-icons/bs";
 import { answersInputsArray } from "./answersArray";
-import Loading from "../../Loading/Loading";
 import { Spinner } from "react-bootstrap";
 import useGet from "../../../api/useGet";
 import usePost from "../../../api/usePost";
-import MessageAlert from "../../MessageAlert/MessageAlert";
+import { Loading, MessageAlert } from "../..";
 
 const AddQuestion = ({ setShowAddQuestion, examID, collegeID }: any) => {
   const [questionText, setQuestionText] = React.useState("");

@@ -8,7 +8,7 @@ export const LinksArray = [
       path: '/dashboard/colleges',
    },
    {
-      name: 'الاختصاصات',
+      name: 'الإختصاصات',
       path: '/dashboard/specialists',
    },
    {
@@ -16,15 +16,15 @@ export const LinksArray = [
       path: '/dashboard/subjects',
    },
    {
-      name: 'الامتحانات',
+      name: 'الإمتحانات',
       path: '/dashboard/exams',
    },
    {
-      name: 'الاعلانات',
+      name: 'الإعلانات',
       path: '/dashboard/ads',
    },
    {
-      name: 'الاقتراحات',
+      name: 'الإقتراحات',
       path: '/dashboard/suggestions',
    },
    {

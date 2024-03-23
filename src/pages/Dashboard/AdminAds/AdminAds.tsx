@@ -1,18 +1,17 @@
 import "./AdminAds.scss";
 import { Table } from "antd";
 import { endPoint } from "../../../api/endPoints";
-import AdminHeader from "../../../components/Dashboard/AdminHeader/AdminHeader";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { FaUpload } from "react-icons/fa";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Spinner } from "react-bootstrap";
-import Loading from "../../../components/Loading/Loading";
 import { useNavigate } from "react-router-dom";
 import Cookies from "js-cookie";
 import usePost from "../../../api/usePost";
-import MessageAlert from "../../../components/MessageAlert/MessageAlert";
 import useGet from "../../../api/useGet";
+import { AdminHeader } from "../../../components/Dashboard";
+import { Loading, MessageAlert } from "../../../components";
 
 const AdminAds = () => {
   const navigate = useNavigate();
@@ -171,7 +170,7 @@ const AdminAds = () => {
         <MessageAlert message={errorMessageDelete} type="error" />
       )}
       <div className="admin-ads flexCenterColumn">
-        <h2>الاعلانات</h2>
+        <h2>الإعلانات</h2>
         <div className="table-container">
           {data && !loading ? (
             <Table dataSource={data} columns={columns} />

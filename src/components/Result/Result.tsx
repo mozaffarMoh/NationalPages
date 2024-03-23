@@ -9,7 +9,7 @@ const Result = ({ showCheckAnswers, data }: any) => {
 
   return (
     <div className="result flexCenterColumn">
-      <div className="flexCenterColumn gap-3 ">
+      <div className="flexCenterColumn gap-3  ">
         <h1>مبروك لقد اتممت الاختبار بنجاح </h1>
         <div className="flexCenter">
           <h1>علامتك هي : {data && data.mark}</h1>

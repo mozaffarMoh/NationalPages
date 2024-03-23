@@ -1,10 +1,12 @@
+import {
+  Ads,
+  Footer,
+  Header,
+  MobileApp,
+  Specialists,
+  StartNow,
+} from "../../components";
 import "./Home.scss";
-import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
-import StartNow from "../../components/StartNow/StartNow";
-import Ads from "../../components/Ads/Ads";
-import Specialists from "../../components/Specialists/Specialists";
-import MobileApp from "../../components/MobileApp/MobileApp";
 
 const Home = () => {
   return (

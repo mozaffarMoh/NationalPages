@@ -1,7 +1,5 @@
 import "./DawratSelection.scss";
-import Header from "../../components/Header/Header";
-import BackTo from "../../components/BackTo/BackTo";
-import AllDawrat from "../../components/AllDawrat/AllDawrat";
+import { AllDawrat, BackTo, Header } from "../../components";
 
 const DawratSelection = () => {
   return (
