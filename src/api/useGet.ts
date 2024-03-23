@@ -18,6 +18,8 @@ const useGet = (endPoint: any, isObject?: any) => {
     const exam_UUID = isObject?.isExam_UUID ? `&exam_uuid=${isObject?.exam_UUID}` : '';
     const degree = isObject?.isDegree ? `&degree=${isObject?.degree}` : '';
     const position = isObject?.isPosition ? `&position=${isObject?.position}` : '';
+    const basePath = window.location.pathname.split('/').slice(0, -1).join('/');
+
 
     /* Get data */
     const getData = () => {
@@ -43,7 +45,7 @@ const useGet = (endPoint: any, isObject?: any) => {
                     if (location.pathname.includes("/dashboard")) {
                         navigate('/dashboard/login')
                     } else {
-                        if (location.pathname !== '/' && location.pathname !== '/register') {
+                        if (location.pathname !== basePath + '/' && location.pathname !== `${basePath}/register`) {
                             navigate('/')
                         }
                     }
@@ -57,7 +59,6 @@ const useGet = (endPoint: any, isObject?: any) => {
 
     /* Check token and get data from initial*/
     React.useEffect(() => {
-        const basePath = window.location.pathname.split('/').slice(0, -1).join('/');
         if (!token) {
             if (location.pathname.includes(`/dashboard`)) {
                 navigate(`/dashboard/login`);
