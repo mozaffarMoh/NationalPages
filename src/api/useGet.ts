@@ -56,13 +56,16 @@ const useGet = (endPoint: any, isObject?: any) => {
     }
     /* Check token and get data from initial*/
     React.useEffect(() => {
+        const basePath = window.location.pathname.split('/').slice(0, -1).join('/');
         if (!token) {
-            if (location.pathname.includes("/dashboard")) {
-                navigate('/dashboard/login');
+            if (location.pathname.includes(`/dashboard`)) {
+                navigate(`${basePath}/dashboard/login`);
                 Cookies.remove("token");
             } else {
-                if (location.pathname !== '/' && location.pathname !== '/register') {
-                    navigate('/')
+                if (
+                    (location.pathname !== basePath && location.pathname !== `${basePath}/register`)
+                ) {
+                    navigate(basePath);
                 }
             }
         }
