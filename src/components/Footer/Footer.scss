@@ -24,6 +24,11 @@
         .links {
             p {
                 font-size: 15px;
+                transition: all .5s ease;
+
+                &:hover {
+                    color: #00000055;
+                }
             }
         }
 

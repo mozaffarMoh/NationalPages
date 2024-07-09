@@ -24,6 +24,7 @@ const Login = () => {
   const {
     register,
     handleSubmit,
+    trigger,
     formState: { errors },
   }: any = useForm();
 
@@ -32,6 +33,37 @@ const Login = () => {
     setName("");
     setCode("");
   }, [success]);
+
+  const [isStartEnterKey, setStartEnterKey] = React.useState(false);
+
+  /* Focus and blur inputs to trigger validation errors */
+  const focusAndBlur = () => {
+    return Object.keys(errors).forEach((errorKey) => {
+      const element = document.getElementsByName(errorKey)[0];
+      if (element) {
+        element.blur();
+        element.focus();
+      }
+    });
+  };
+
+  /* check login validation after enter key */
+  const handleEnterKey = async (e: any) => {
+    if (e.key === "Enter") {
+      await trigger("email");
+      await trigger("password");
+      focusAndBlur();
+      setStartEnterKey(true);
+    }
+  };
+
+  /* Start login after enter key for first enter press */
+  React.useEffect(() => {
+    if (isStartEnterKey) {
+      handleSubmit(handleLogin)();
+      focusAndBlur();
+    }
+  }, [isStartEnterKey]);
 
   return (
     <div className="login flexCenter">
@@ -48,11 +80,21 @@ const Login = () => {
           <div className="title flexCenter">
             <p>تسجيل الدخول</p>
           </div>
-          <UsernameInput name={name} setName={setName} register={register} />
+          <UsernameInput
+            name={name}
+            setName={setName}
+            register={register}
+            handleEnterKey={handleEnterKey}
+          />
           {errors.username && (
             <div className="error-message">{errors.username.message}</div>
           )}
-          <PasswordInput code={code} setCode={setCode} register={register} />
+          <PasswordInput
+            code={code}
+            setCode={setCode}
+            register={register}
+            handleEnterKey={handleEnterKey}
+          />
           {errors.password && (
             <div className="error-message">{errors.password.message}</div>
           )}

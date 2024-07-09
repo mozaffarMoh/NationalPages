@@ -1,15 +1,13 @@
 .specialists {
     position: relative;
     width: 100%;
-    max-height: 600px;
     text-align: center;
-    overflow: auto;
-
 
 
     .specialist-items {
         width: 100%;
         flex-wrap: wrap;
+        overflow: auto;
 
         .specialist-item {
             width: 25%;
@@ -43,6 +41,17 @@
                 background-color: #B989BD77;
                 transition: all .5s ease;
             }
+        }
+    }
+
+    .show-more {
+        color: #6F2877;
+        transition: all .5s ease;
+        text-decoration: underline;
+        cursor: pointer;
+
+        &:hover {
+            color: #6F2877AA;
         }
     }
 }

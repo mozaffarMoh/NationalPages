@@ -1,7 +1,7 @@
 import "./PhoneInput.scss";
 import phoneIcon from "../../../assets/images/Login/phone.svg";
 
-const PhoneInput = ({ phone, setPhone, register }: any) => {
+const PhoneInput = ({ phone, setPhone, register, handleEnterKey }: any) => {
   return (
     <div className="phone-input-component">
       <p>رقم الموبايل</p>
@@ -17,7 +17,7 @@ const PhoneInput = ({ phone, setPhone, register }: any) => {
           },
         })}
         onChange={(e) => setPhone(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && e.preventDefault()}
+        onKeyDown={handleEnterKey}
       />
       <img src={phoneIcon} alt="" />
     </div>

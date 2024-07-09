@@ -27,6 +27,7 @@ const Register = () => {
   const {
     register,
     handleSubmit,
+    trigger,
     formState: { errors },
   }: any = useForm();
 
@@ -37,6 +38,36 @@ const Register = () => {
     setCollegeUUID("");
   }, [success]);
 
+  const [isStartEnterKey, setStartEnterKey] = React.useState(false);
+
+  /* Focus and blur inputs to trigger validation errors */
+  const focusAndBlur = () => {
+    return Object.keys(errors).forEach((errorKey) => {
+      const element = document.getElementsByName(errorKey)[0];
+      if (element) {
+        element.blur();
+        element.focus();
+      }
+    });
+  };
+
+  /* check validation after enter key */
+  const handleEnterKey = async (e: any) => {
+    if (e.key === "Enter") {
+      await trigger("email");
+      await trigger("phone");
+      focusAndBlur();
+      setStartEnterKey(true);
+    }
+  };
+
+  /* Start Register after enter key for first enter press */
+  React.useEffect(() => {
+    if (isStartEnterKey) {
+      handleSubmit(handleRegister)();
+      focusAndBlur();
+    }
+  }, [isStartEnterKey]);
   return (
     <div className="register flexCenter">
       {loading && <Loading />}
@@ -50,11 +81,21 @@ const Register = () => {
           <div className="title flexCenter">
             <p>إنشاء حساب</p>
           </div>
-          <UsernameInput name={name} setName={setName} register={register} />
+          <UsernameInput
+            name={name}
+            setName={setName}
+            register={register}
+            handleEnterKey={handleEnterKey}
+          />
           {errors.username && (
             <div className="error-message p-2">{errors.username.message}</div>
           )}
-          <PhoneInput phone={phone} setPhone={setPhone} register={register} />
+          <PhoneInput
+            phone={phone}
+            setPhone={setPhone}
+            register={register}
+            handleEnterKey={handleEnterKey}
+          />
           {errors.phone && (
             <div className="error-message p-2">{errors.phone.message}</div>
           )}

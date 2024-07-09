@@ -1,0 +1,35 @@
+.about {
+
+    padding: 10px 100px;
+    gap: 50px;
+
+    h1 {
+        line-height: 80px;
+    }
+
+    .email-icon,
+    .phone-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .contact-item {
+        border: 1px solid #7539e4;
+        border-radius: 5px;
+        padding: 10px;
+        margin-left: 10px;
+        cursor: pointer;
+        transition: all .5s ease;
+
+        &:hover {
+            background-color: #00000011
+        }
+    }
+}
+
+
+@media (max-width : 600px) {
+    .about {
+        padding: 0px 50px;
+    }
+}

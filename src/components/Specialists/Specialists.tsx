@@ -10,6 +10,8 @@ import { ChooseSpecialistOnStart } from "..";
 const Specialists = () => {
   const collegeRef: any = useRef(null);
   const othersRef: any = useRef(null);
+  const [colleges, setColleges] = React.useState([]);
+  const [count, setCount] = React.useState(0);
   const [showChooseSpecialists, setShowChooseSpecialists] =
     React.useState(false);
   const [showLoginRequired, setShowLoginRequired] = React.useState(false);
@@ -21,6 +23,16 @@ const Specialists = () => {
     college_UUID: collegeUUID,
   });
 
+  React.useEffect(() => {
+    setColleges(data);
+    setCount(8);
+  }, [data]);
+
+  const handleShowMore = () => {
+    if (count < data.length) {
+      setCount((prev) => prev + 8);
+    }
+  };
   /* Handle select on specialist */
   const handleSelect = (currentUUID: any) => {
     if (token) {
@@ -56,42 +68,44 @@ const Specialists = () => {
         <h2>الإختصاصات</h2>
       </div>
       <div className="specialist-items flexCenter">
-        {data &&
-          data.map((item: any, index: number) => {
-            return (
+        {colleges.slice(0, count).map((item: any, index: number) => {
+          return (
+            <div
+              className={`specialist-item flexCenter`}
+              key={index}
+              onClick={() => handleSelect(item.college_uuid)}
+            >
               <div
-                className={`specialist-item flexCenter`}
-                key={index}
-                onClick={() => handleSelect(item.college_uuid)}
+                ref={collegeUUID == item.college_uuid ? collegeRef : othersRef}
+                className={`specialist-item-inside  ${
+                  hintYourCollege &&
+                  collegeUUID == item.college_uuid &&
+                  "hint-your-college"
+                }`}
               >
-                <div
-                  ref={
-                    collegeUUID == item.college_uuid ? collegeRef : othersRef
-                  }
-                  className={`specialist-item-inside  ${
-                    hintYourCollege &&
-                    collegeUUID == item.college_uuid &&
-                    "hint-your-college"
+                <img src={item.image} />
+                <p
+                  className={`${
+                    item.college_uuid == collegeUUID && "current-college "
                   }`}
                 >
-                  <img src={item.image} />
-                  <p
-                    className={`${
-                      item.college_uuid == collegeUUID && "current-college "
-                    }`}
-                  >
-                    {item.name}
-                  </p>
-                </div>
+                  {item.name}
+                </p>
               </div>
-            );
-          })}
+            </div>
+          );
+        })}
         {loading && (
           <div className="overflow-y-hidden ">
             <Spinner />
           </div>
         )}
       </div>
+      {data && data.length > 8 && count < data.length && (
+        <h5 onClick={handleShowMore} className="show-more">
+          رؤية المزيد
+        </h5>
+      )}
       {showChooseSpecialists && (
         <ChooseSpecialistOnStart
           setShowChooseSpecialists={setShowChooseSpecialists}

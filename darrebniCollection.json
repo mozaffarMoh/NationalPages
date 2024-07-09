@@ -403,7 +403,8 @@
 											"\r",
 											"pm.request.headers.add({key: 'Accept', value: 'application/json' })"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -670,7 +671,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin}}",
 											"type": "string"
 										}
 									]
@@ -854,8 +855,7 @@
 									"query": [
 										{
 											"key": "college_uuid",
-											"value": "06ae1f82-8df5-413f-bddb-bc2c1fc6ea51",
-											"description": "required |string "
+											"value": "06ae1f82-8df5-413f-bddb-bc2c1fc6ea51"
 										},
 										{
 											"key": "specialty_uuid",
@@ -2686,7 +2686,7 @@
 									}
 								},
 								"url": {
-									"raw": "https://national.cliprz.org/api/user/add-favorite?college_uuid=06ae1f82-8df5-413f-bddb-bc2c1fc6ea51&question=228",
+									"raw": "https://national.cliprz.org/api/user/add-favorite?college_uuid=06ae1f82-8df5-413f-bddb-bc2c1fc6ea51&question=820",
 									"protocol": "https",
 									"host": [
 										"national",
@@ -2705,7 +2705,7 @@
 										},
 										{
 											"key": "question",
-											"value": "228",
+											"value": "820",
 											"description": "required integer"
 										}
 									]
@@ -3072,7 +3072,8 @@
 											"\r",
 											"pm.request.headers.add({key: 'Accept', value: 'application/json' })"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"packages": {}
 									}
 								}
 							],
@@ -3331,7 +3332,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "{{token}}",
+											"value": "{{admin}}",
 											"type": "string"
 										}
 									]
@@ -3349,24 +3350,28 @@
 									"formdata": [
 										{
 											"key": "body",
-											"value": "yazanfffaadgg"
+											"value": "local",
+											"description": "required text"
 										},
 										{
 											"key": "title",
-											"value": "efsdf"
+											"value": "مرحبا",
+											"description": "required string"
 										},
 										{
 											"key": "college_uuid",
-											"value": "06ae1f82-8df5-413f-bddb-bc2c1fc6ea51"
+											"value": "all",
+											"description": "required string uuid or string  value \"all\""
 										}
 									]
 								},
 								"url": {
-									"raw": "http://derrebni-3lwatany.test/api/admin/send-notify",
-									"protocol": "http",
+									"raw": "https://national.cliprz.org/api/admin/send-notify",
+									"protocol": "https",
 									"host": [
-										"derrebni-3lwatany",
-										"test"
+										"national",
+										"cliprz",
+										"org"
 									],
 									"path": [
 										"api",
@@ -3788,9 +3793,10 @@
 										},
 										{
 											"key": "specialty_id",
-											"value": "4",
+											"value": "",
 											"description": "requitred  | integer",
-											"type": "text"
+											"type": "text",
+											"disabled": true
 										},
 										{
 											"key": "name",
@@ -4071,7 +4077,7 @@
 							"response": []
 						},
 						{
-							"name": "show exam by college",
+							"name": "show questions by exam",
 							"request": {
 								"auth": {
 									"type": "bearer",
@@ -4086,7 +4092,7 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "https://national.cliprz.org/api/admin/exams?college_id=1",
+									"raw": "https://national.cliprz.org/api/admin/show-questions?exam_id=1",
 									"protocol": "https",
 									"host": [
 										"national",
@@ -4096,14 +4102,54 @@
 									"path": [
 										"api",
 										"admin",
-										"exams"
+										"show-questions"
 									],
 									"query": [
 										{
-											"key": "college_id",
-											"value": "1",
-											"description": "required integer"
+											"key": "exam_id",
+											"value": "1"
 										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update question",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{admin}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n            \"exam_id\": 1,\r\n            \"question_id\": 310,\r\n            \"subject_id\": 1,\r\n            \"question_text\": \"yazan.\",\r\n            \"question_number\": 1,\r\n            \"answers\": [\r\n                {\r\n                    \"answer_id\": 2035,\r\n                    \"answer_text\": \"s.\",\r\n                    \"status\": false\r\n                },\r\n                {\r\n                    \"answer_id\": 710,\r\n                    \"answer_text\": \"Accusantium iure et qui.\",\r\n                    \"status\": false\r\n                },\r\n                {\r\n                    \"answer_id\": 2413,\r\n                    \"answer_text\": \"Maxime itaque quidem ab esse.\",\r\n                    \"status\": false\r\n                },\r\n                {\r\n                    \"answer_id\": 450,\r\n                    \"answer_text\": \"s.\",\r\n                    \"status\": true\r\n                },\r\n                {\r\n                    \"answer_id\": 4623,\r\n                    \"answer_text\": \"Unde et recusandae aut sit.\",\r\n                    \"status\": false\r\n                }\r\n            ]\r\n        }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://national.cliprz.org/api/admin/update-question",
+									"protocol": "https",
+									"host": [
+										"national",
+										"cliprz",
+										"org"
+									],
+									"path": [
+										"api",
+										"admin",
+										"update-question"
 									]
 								}
 							},
@@ -4134,7 +4180,7 @@
 									"formdata": [
 										{
 											"key": "user_id",
-											"value": "319",
+											"value": "346",
 											"description": "required integer",
 											"type": "text"
 										}

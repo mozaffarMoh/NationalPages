@@ -22,14 +22,6 @@ const Header = () => {
     React.useState(false);
   const [showProfileEdit, setShowProfileEdit] = React.useState(false);
   const [showProfileList, setShowProfileList] = React.useState(false);
-  const basePath = window.location.pathname.split("/").slice(0, -1).join("/");
-  const [active, setActive] = React.useState(
-    location.pathname == basePath + "/" ? "main" : ""
-  );
-
-  const handleSetActive = (value: string) => {
-    active === value ? setActive("") : setActive(value);
-  };
 
   /* Remove data from cookies when logout and navigate to login page*/
   const removeCookiesAndNavigate = () => {
@@ -82,34 +74,33 @@ const Header = () => {
         <NavLink
           to="/"
           className={`link-template ${
-            active === "main" && "link-template-active"
+            location.pathname === "/" &&
+            location.hash !== "#specialists" &&
+            "link-template-active"
           }`}
-          onClick={() => handleSetActive("main")}
         >
           <p>الرئيسية</p>
         </NavLink>
-        {!specialityUUID && (
+        {!specialityUUID && !location.pathname.includes("about") && (
           <a
-            href="#specialists"
+            href="/#specialists"
             className={`link-template ${
-              active === "specialists" && "link-template-active"
+              location.hash.includes("#specialists") && "link-template-active"
             }`}
-            onClick={() => handleSetActive("specialists")}
           >
             <p>الإختصاصات</p>
           </a>
         )}
-        <a
+        <NavLink
+          to="/about"
           className={`link-template ${
-            active === "about" && "link-template-active"
+            location.pathname.includes("about") &&
+            !location.pathname.includes("specialists") &&
+            "link-template-active"
           }`}
-          onClick={() => {
-            handleSetActive("about");
-            navigate("/dashboard/login");
-          }}
         >
           <p>من نحن</p>
-        </a>
+        </NavLink>
       </div>
 
       {/* Login Button and Profile porperties */}

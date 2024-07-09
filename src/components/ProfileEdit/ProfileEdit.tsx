@@ -22,6 +22,7 @@ const ProfileEdit = ({
   const {
     register,
     handleSubmit,
+    trigger,
     formState: { errors },
   }: any = useForm();
   const collegeUUID = Cookies.get("collegeUUID");
@@ -63,33 +64,75 @@ const ProfileEdit = ({
     setPhone(data?.phone);
   }, [data]);
 
+  const [isStartEnterKey, setStartEnterKey] = React.useState(false);
+
+  /* Focus and blur inputs to trigger validation errors */
+  const focusAndBlur = () => {
+    return Object.keys(errors).forEach((errorKey) => {
+      const element = document.getElementsByName(errorKey)[0];
+      if (element) {
+        element.blur();
+        element.focus();
+      }
+    });
+  };
+
+  /* check validation after enter key */
+  const handleEnterKey = async (e: any) => {
+    if (e.key === "Enter") {
+      await trigger("username");
+      await trigger("phone");
+      focusAndBlur();
+      setStartEnterKey(true);
+    }
+  };
+
+  /* Start after enter key for first enter press */
+  React.useEffect(() => {
+    if (isStartEnterKey) {
+      handleSubmit(editProfileFunc)();
+      focusAndBlur();
+    }
+  }, [isStartEnterKey]);
+
   return (
     <div className="profile-edit flexCenter">
       {postLoading && <Loading />}
       {errorMessage && <MessageAlert message={errorMessage} type="error" />}
-      <div className="profile-edit-title">
-        <p>تعديل المعلومات الشخصية</p>
-      </div>
-      <div className="profile-edit-avatar">
-        <img src={avatarIcon} alt="" />
-        <div>
-          {data && <p>{data.name} </p>}
 
-          {loading && <Spinner className="profile-data-spinner" />}
-          {getDataError && <Retry getData={getData} />}
-        </div>
+      <p>تعديل المعلومات الشخصية</p>
+
+      <div className="profile-edit-avatar flexCenterColumn">
+        <img src={avatarIcon} alt="" />
+        <div className="brightness flexCenter">Upload</div>
+      </div>
+      <div className="profile-details">
+        {data && <p>{data.name} </p>}
+
+        {getDataError && <Retry getData={getData} />}
+        {loading && <Spinner className="profile-data-spinner" />}
       </div>
       <form
         className="profile-edit-form flexCenterColumnItemStart"
         onSubmit={handleSubmit(editProfileFunc)}
       >
-        <UsernameInputEdit name={name} setName={setName} register={register} />{" "}
+        <UsernameInputEdit
+          name={name}
+          setName={setName}
+          register={register}
+          handleEnterKey={handleEnterKey}
+        />{" "}
         {errors.username && (
-          <div className="error-message p-2">{errors.username.message}</div>
+          <div className="error-message ">{errors.username.message}</div>
         )}
-        <PhoneInputEdit phone={phone} setPhone={setPhone} register={register} />{" "}
+        <PhoneInputEdit
+          phone={phone}
+          setPhone={setPhone}
+          register={register}
+          handleEnterKey={handleEnterKey}
+        />{" "}
         {errors.phone && (
-          <div className="error-message p-2">{errors.phone.message}</div>
+          <div className="error-message ">{errors.phone.message}</div>
         )}
         <Button
           type="submit"
@@ -98,8 +141,8 @@ const ProfileEdit = ({
         >
           حفظ التغييرات
         </Button>
+        <span onClick={() => setShowProfileEdit(false)}>خروج</span>
       </form>
-      <span onClick={() => setShowProfileEdit(false)}>تراجع</span>
     </div>
   );
 };

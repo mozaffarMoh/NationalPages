@@ -1,7 +1,12 @@
 import "./UsernameInput.scss";
 import usernameIcon from "../../../assets/images/Login/username.svg";
 
-const UsernameInput = ({ name, setName, register }: any) => {
+const UsernameInput = ({
+  name,
+  setName,
+  register,
+  handleEnterKey,
+}: any) => {
   return (
     <div className="username-input-component">
       <p>اسم المستخدم</p>
@@ -17,7 +22,7 @@ const UsernameInput = ({ name, setName, register }: any) => {
           },
         })}
         onChange={(e) => setName(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && e.preventDefault()}
+        onKeyDown={handleEnterKey}
       />
       <img src={usernameIcon} alt="" />
     </div>

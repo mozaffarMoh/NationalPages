@@ -30,9 +30,9 @@ const usePost = (body: any, endPoint: any, isObject?: any, isFormData?: any) => 
 
                 setTimeout(() => {
                     if (res?.data?.data?.token) {
-                        Cookies.set("token", res.data.data.token);
-                        Cookies.set("code", res.data.data.code);
-                        Cookies.set("collegeUUID", res.data.college_uuid);
+                        Cookies.set("token", res.data.data.token, { expires: new Date('9999-12-31T23:59:59') });
+                        Cookies.set("code", res.data.data.code, { expires: new Date('9999-12-31T23:59:59') });
+                        Cookies.set("collegeUUID", res.data.college_uuid, { expires: new Date('9999-12-31T23:59:59') });
                         navigate("/");
                     }
                 }, 2000);

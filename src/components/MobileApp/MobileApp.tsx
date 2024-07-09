@@ -1,6 +1,7 @@
 import "./MobileApp.scss";
 import mobileImage from "../../assets/images/MobileApp/mobile.png";
-import stores from "../../assets/images/MobileApp/stores.png";
+import appleStore from "../../assets/images/MobileApp/appleStore.png";
+import googleStore from "../../assets/images/MobileApp/googleStore.png";
 
 const MobileApp = () => {
   return (
@@ -10,7 +11,24 @@ const MobileApp = () => {
         <div className="download-from-stores flexCenter">
           <p>يمكنك تنزيل التطبيق و استخدامه اينما كنت</p>
           <p>متوفر على انظمة الاندرويد و الايفون</p>
-          <img src={stores} alt="" loading="lazy" />
+          <div className="flexCenter">
+            <a href="https://www.google.com" target="_blank">
+              <img
+                src={googleStore}
+                alt=""
+                loading="lazy"
+                className="googleStore"
+              />
+            </a>
+            <a href="https://www.apple.com" target="_blank">
+              <img
+                src={appleStore}
+                alt=""
+                loading="lazy"
+                className="appleStore"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </div>

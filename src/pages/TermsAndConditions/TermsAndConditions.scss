@@ -1,0 +1,14 @@
+.about {
+    padding : 10px 100px;
+    gap : 50px;
+     h1 {
+        line-height: 80px;
+    }
+}
+
+
+@media (max-width : 600px) {
+    .about{
+        padding: 0px 50px;
+    }
+}

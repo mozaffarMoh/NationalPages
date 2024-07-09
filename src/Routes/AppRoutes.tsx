@@ -1,13 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
+  About,
   DawratSelection,
   Home,
   Login,
   PageNotFound,
+  PrivacyPolicy,
   QuizPage,
   QuizResult,
   Register,
   SubjectSelection,
+  TermsAndConditions,
 } from "../pages";
 import {
   AdminAds,
@@ -24,10 +27,14 @@ import {
 
 const AppRoutes = () => {
   return (
-    <Router basename="NationalPages">
+    <Router basename="">
       <Routes>
         {/* User Routes */}
+
         <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/subject-selection" element={<SubjectSelection />} />

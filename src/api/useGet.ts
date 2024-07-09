@@ -20,12 +20,11 @@ const useGet = (endPoint: any, isObject?: any) => {
     const position = isObject?.isPosition ? `&position=${isObject?.position}` : '';
     const basePath = window.location.pathname.split('/').slice(0, -1).join('/');
 
-
     /* Get data */
     const getData = () => {
         setErrorStatus(false);
         setSuccessStatus(false);
-        setLoading(true)
+        setLoading(true);
         apiNational
             .get(endPoint + college_UUID + speciality_UUID + subject_UUID + exam_UUID + degree + position)
             .then((res) => {
@@ -56,12 +55,12 @@ const useGet = (endPoint: any, isObject?: any) => {
             });
 
     }
-
     /* Check token and get data from initial*/
     React.useEffect(() => {
         if (!token) {
             if (location.pathname.includes(`/dashboard`)) {
-                navigate(`/dashboard/login`);
+                navigate('/dashboard/login');
+
             } else {
                 if (
                     (location.pathname !== basePath + '/' && location.pathname !== `${basePath}/register`)

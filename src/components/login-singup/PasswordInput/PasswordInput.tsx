@@ -1,7 +1,7 @@
 import "./PasswordInput.scss";
 import passwordIcon from "../../../assets/images/Login/password.svg";
 
-const PasswordInput = ({ code, setCode, register }: any) => {
+const PasswordInput = ({ code, setCode, register, handleEnterKey }: any) => {
   return (
     <div className="password-input-component">
       <p>رمز الدخول</p>
@@ -21,7 +21,7 @@ const PasswordInput = ({ code, setCode, register }: any) => {
           },
         })}
         onChange={(e) => setCode(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && e.preventDefault()}
+        onKeyDown={handleEnterKey}
       />
       <img src={passwordIcon} alt="" />
     </div>

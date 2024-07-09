@@ -2,7 +2,7 @@ import "./PhoneInputEdit.scss";
 import phoneIcon from "../../assets/images/Login/phone.svg";
 import editIcon from "../../assets/images/ProfileEdit/edit.svg";
 
-const PhoneInputEdit = ({ phone, setPhone, register }: any) => {
+const PhoneInputEdit = ({ phone, setPhone, register,handleEnterKey }: any) => {
   return (
     <div className="phone-input-edit mt-4">
       <p>رقم الموبايل</p>
@@ -19,7 +19,7 @@ const PhoneInputEdit = ({ phone, setPhone, register }: any) => {
           },
         })}
         onChange={(e) => setPhone(e.target.value)}
-        onKeyDown={(e) => e.key === "Enter" && e.preventDefault()}
+        onKeyDown={handleEnterKey}
       />
       <img src={phoneIcon} className="phone-icon" alt="" />
       <img src={editIcon} className="edit-icon" alt="" />
